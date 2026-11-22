@@ -1,0 +1,365 @@
+@import "tailwindcss";
+
+:root {
+  /* Official POAS (Paschim Odisha Agrani Sangathana) Red, Black & White Design Tokens */
+  --poas-red: #A31D1D;
+  --poas-red-hover: #C52222;
+  --poas-red-deep: #6B0F10;
+  --poas-red-light: #EF4444;
+
+  --poas-black: #0B0B0C;
+  --poas-black-soft: #141416;
+  --poas-charcoal: #1E1E22;
+  --poas-surface: #17171B;
+  --poas-surface-elevated: #22222A;
+
+  --poas-white: #FFFFFF;
+  --poas-white-soft: #F4F4F6;
+  --poas-gray-light: #D1D5DB;
+  --poas-gray-muted: #9CA3AF;
+  --poas-gray-dark: #4B5563;
+
+  --background: #0B0B0C;
+  --surface: #141416;
+  --surface-elevated: #1E1E22;
+  --surface-red: #241113;
+
+  --text-primary: #FFFFFF;
+  --text-secondary: #E5E7EB;
+  --text-muted: #9CA3AF;
+
+  --border: #2D2D35;
+  --border-subtle: #222228;
+  --border-accent: #A31D1D;
+  --border-red: rgba(163, 29, 29, 0.45);
+
+  --success: #22C55E;
+  --error: #EF4444;
+
+  --ease-premium: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@theme {
+  --color-poas-red: var(--poas-red);
+  --color-poas-red-hover: var(--poas-red-hover);
+  --color-poas-red-deep: var(--poas-red-deep);
+  --color-poas-black: var(--poas-black);
+  --color-poas-white: var(--poas-white);
+  --color-poas-surface: var(--surface);
+
+  --color-bg-dark: var(--background);
+  --color-surface: var(--surface);
+  --color-surface-elevated: var(--surface-elevated);
+  --color-border-dark: var(--border);
+  --color-border-accent: var(--border-accent);
+
+  --font-serif: "Cormorant Garamond", Georgia, serif;
+  --font-sans: "Inter", system-ui, -apple-system, sans-serif;
+  --font-odia: "Noto Serif Oriya", "Noto Sans Oriya", serif;
+}
+
+/* Base resets & typography */
+html {
+  background-color: var(--background);
+  color: var(--text-primary);
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--background);
+  color: var(--text-primary);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Headings */
+h1, h2, h3, h4, .font-serif {
+  font-family: var(--font-serif);
+  letter-spacing: -0.015em;
+}
+
+.font-odia {
+  font-family: var(--font-odia);
+}
+
+/* Selection */
+::selection {
+  background: var(--poas-red);
+  color: var(--poas-white);
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--background);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--poas-red);
+}
+
+/* Focus styles */
+:focus-visible {
+  outline: 2px solid var(--poas-red);
+  outline-offset: 2px;
+}
+
+/* Sambalpuri Red, Black & White Ikat Border Divider */
+.sambalpuri-border-divider {
+  height: 8px;
+  background-image: 
+    linear-gradient(135deg, var(--poas-red) 25%, transparent 25%),
+    linear-gradient(225deg, var(--poas-red) 25%, transparent 25%),
+    linear-gradient(45deg, #FFFFFF 25%, transparent 25%),
+    linear-gradient(315deg, #FFFFFF 25%, transparent 25%);
+  background-position: 8px 0, 8px 0, 0 0, 0 0;
+  background-size: 16px 16px;
+  background-color: var(--poas-black);
+}
+
+/* =========================================================================
+   GLASSMORPHISM ARCHITECTURE (POAS REALISM & APPLE ULTRA-GLASS DEPTH)
+   ========================================================================= */
+
+.apple-glass-nav {
+  background: rgba(14, 14, 16, 0.65);
+  backdrop-filter: blur(28px) saturate(190%) brightness(105%);
+  -webkit-backdrop-filter: blur(28px) saturate(190%) brightness(105%);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 
+    0 16px 40px -8px rgba(0, 0, 0, 0.75),
+    0 0 1px 1px rgba(255, 255, 255, 0.08),
+    inset 0 1px 1px 0 rgba(255, 255, 255, 0.22),
+    inset 0 -1px 1px 0 rgba(0, 0, 0, 0.45);
+}
+
+.apple-glass-nav-scrolled {
+  background: rgba(16, 16, 20, 0.82);
+  backdrop-filter: blur(34px) saturate(200%) brightness(102%);
+  -webkit-backdrop-filter: blur(34px) saturate(200%) brightness(102%);
+  border: 1px solid rgba(163, 29, 29, 0.35);
+  box-shadow: 
+    0 24px 54px -10px rgba(0, 0, 0, 0.85),
+    0 0 1px 1px rgba(163, 29, 29, 0.25),
+    inset 0 1px 1.5px 0 rgba(255, 255, 255, 0.3),
+    inset 0 -1px 1.5px 0 rgba(0, 0, 0, 0.55);
+}
+
+.apple-glass-dropdown {
+  background: rgba(18, 18, 22, 0.92);
+  backdrop-filter: blur(36px) saturate(210%);
+  -webkit-backdrop-filter: blur(36px) saturate(210%);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  box-shadow: 
+    0 24px 48px -12px rgba(0, 0, 0, 0.85),
+    inset 0 1px 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+.glass-panel {
+  background: rgba(20, 20, 24, 0.75);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 10px 32px 0 rgba(0, 0, 0, 0.5), inset 0 1px 0 0 rgba(255, 255, 255, 0.1);
+}
+
+.glass-panel-elevated {
+  background: rgba(26, 26, 32, 0.82);
+  backdrop-filter: blur(24px) saturate(200%);
+  -webkit-backdrop-filter: blur(24px) saturate(200%);
+  border: 1px solid rgba(163, 29, 29, 0.32);
+  box-shadow: 0 20px 48px -8px rgba(0, 0, 0, 0.65), inset 0 1px 1px 0 rgba(255, 255, 255, 0.15);
+}
+
+.glass-card-interactive {
+  background: rgba(20, 20, 24, 0.75);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 8px 24px -4px rgba(0, 0, 0, 0.5), inset 0 1px 0 0 rgba(255, 255, 255, 0.08);
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.glass-card-interactive:hover {
+  background: rgba(28, 28, 34, 0.9);
+  border-color: rgba(163, 29, 29, 0.65);
+  box-shadow: 0 18px 42px -6px rgba(0, 0, 0, 0.75), 0 0 28px -2px rgba(163, 29, 29, 0.25), inset 0 1px 1px 0 rgba(255, 255, 255, 0.2);
+  transform: translateY(-5px);
+}
+
+/* =========================================================================
+   GRAPHIC & ATMOSPHERIC KEYFRAME ANIMATIONS
+   ========================================================================= */
+
+@keyframes float-aura-1 {
+  0%, 100% {
+    transform: translate(-50%, 0) scale(1);
+    opacity: 0.25;
+  }
+  50% {
+    transform: translate(-47%, 28px) scale(1.08);
+    opacity: 0.35;
+  }
+}
+
+@keyframes float-aura-2 {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+    opacity: 0.2;
+  }
+  50% {
+    transform: translate(-32px, -24px) scale(1.12);
+    opacity: 0.32;
+  }
+}
+
+@keyframes pulse-subtle {
+  0%, 100% {
+    opacity: 0.35;
+  }
+  50% {
+    opacity: 0.55;
+  }
+}
+
+@keyframes rotate-watermark {
+  0%, 100% {
+    transform: rotate(0deg) scale(1);
+  }
+  50% {
+    transform: rotate(1.8deg) scale(1.03);
+  }
+}
+
+.animate-float-1 {
+  animation: float-aura-1 18s ease-in-out infinite;
+}
+
+.animate-float-2 {
+  animation: float-aura-2 22s ease-in-out infinite;
+}
+
+.animate-watermark-breath {
+  animation: rotate-watermark 24s ease-in-out infinite;
+  transform-origin: center center;
+}
+
+/* Infinite Marquee */
+@keyframes marquee {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee 40s linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
+/* Sacred Sambalpuri Mandala Animations */
+@keyframes mandala-cw {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes mandala-ccw {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(-360deg); }
+}
+
+@keyframes mandala-pulse {
+  0%, 100% { transform: scale(1); opacity: 0.85; }
+  50% { transform: scale(1.05); opacity: 1; }
+}
+
+.animate-mandala-cw {
+  animation: mandala-cw 60s linear infinite;
+  transform-origin: 300px 300px;
+}
+
+.animate-mandala-ccw {
+  animation: mandala-ccw 45s linear infinite;
+  transform-origin: 300px 300px;
+}
+
+.animate-mandala-pulse {
+  animation: mandala-pulse 7s ease-in-out infinite;
+  transform-origin: 300px 300px;
+}
+
+/* Floating Crimson Embers */
+@keyframes float-ember {
+  0% {
+    transform: translateY(0) translateX(0) scale(0.6);
+    opacity: 0;
+  }
+  15% {
+    opacity: 0.85;
+  }
+  85% {
+    opacity: 0.85;
+  }
+  100% {
+    transform: translateY(-110vh) translateX(30px) scale(1.1);
+    opacity: 0;
+  }
+}
+
+.animate-float-ember {
+  animation: float-ember linear infinite;
+}
+
+/* Radiant White-to-Red Text Shimmer */
+@keyframes text-shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.animate-text-shimmer {
+  background: linear-gradient(90deg, #FFFFFF 0%, #FCA5A5 30%, #EF4444 50%, #FCA5A5 70%, #FFFFFF 100%);
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: text-shimmer 7s ease-in-out infinite;
+}
+
+/* Scroll Reveal Classes */
+.reveal-init {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1), transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.reveal-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Reduced motion accessibility */
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .reveal-init {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}

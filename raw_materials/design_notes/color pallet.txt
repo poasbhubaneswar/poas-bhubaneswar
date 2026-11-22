@@ -1,0 +1,13 @@
+Token			Hex		Usage
+Background		#160F12		Main background
+Surface			#21171B		Cards and panels
+Elevated surface	#2C1D22		Modals and dropdowns
+Burgundy		#591D2A		Brand sections
+Burgundy light		#793A45		Hover states
+Gold			#C49A52		Highlights
+Gold light		#E0BF7C		Hover accents
+Ivory			#F4EBDD		Main text
+Muted text		#B9A99B		Secondary text
+Border			#49343A		Dividers and outlines
+Success			#829B78		Success states
+Error			#D4776C		Error states
