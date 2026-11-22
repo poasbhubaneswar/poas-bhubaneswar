@@ -26,12 +26,12 @@ Official digital platform of **Paschim Odisha Agrani Sangathana (POAS)**, repres
    - Instagram-style photo archives and news announcements.
    - Two-tier membership registration teaser.
 
-2. **Leadership & Governing Body (`/leadership`)**:
-   - Complete 19-member roster from the official POAS resolution:
-     - **Governing Body (9 Members)**: President, Vice-President, Secretary General, Secretaries, Treasurer, Project Coordinator.
-     - **Executive Body (10 Members)**: Executive Members.
-   - 14 matched high-resolution photographic portraits with Odia/English designations and contact numbers.
-   - 5 members flagged with official *"Photo verification pending"* status cards.
+2. **Leadership & Governing Body (`/leadership` & `/governing-body`)**:
+   - Complete 24-member institutional governance structure based on official source documents:
+     - **Board of Advisors (5 Advisors)**: Formulated per **POAS LH.pdf** (Ex-MP, Retd. IRTS, Retd. Bankers, Theater Artist).
+     - **Governing Body (9 Office Bearers)**: President, Working President / Vice-President, Secretary General, 4 Secretaries, Treasurer, Project Coordinator with letterhead professional titles.
+     - **Executive Body (10 Members)**: Elected Executive Committee members per **NEWLY ELECTED GOVERNING BODY (1).docx**.
+   - Matched high-resolution photographic portraits with Odia/English designations and biographical profiles.
 
 3. **Meetings & Activities (`/meetings` & `/meetings/[slug]`)**:
    - Complete documented records of 6 key POAS meetings and consultative assemblies.

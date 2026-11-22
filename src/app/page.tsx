@@ -20,7 +20,7 @@ export default async function HomePage() {
       include: { schedules: { orderBy: { orderIndex: "asc" } } },
     }),
     prisma.officeBearer.findMany({
-      where: { isPublished: true },
+      where: { category: "GOVERNING_BODY", isPublished: true },
       orderBy: { displayOrder: "asc" },
       take: 4,
       select: {
@@ -426,7 +426,7 @@ export default async function HomePage() {
             href="/leadership"
             className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/[0.05] px-6 py-2.5 text-xs font-bold text-white hover:bg-white/[0.1] hover:border-[#A31D1D] transition-all"
           >
-            <span>View All 19 Governing &amp; Executive Members</span>
+            <span>View All 24 Leadership, Advisory &amp; Governing Body Members</span>
             <ArrowRight className="h-3.5 w-3.5 text-[#EF4444]" />
           </Link>
         </div>

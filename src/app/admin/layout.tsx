@@ -20,7 +20,7 @@ import {
 const ADMIN_NAV = [
   { href: "/admin", label: "Dashboard Overview", icon: LayoutDashboard },
   { href: "/admin/content", label: "Site Content CMS", icon: Settings },
-  { href: "/admin/leadership", label: "Governing Body (19)", icon: Users },
+  { href: "/admin/leadership", label: "Leadership & Council (24)", icon: Users },
   { href: "/admin/meetings", label: "Meetings & Activities", icon: Briefcase },
   { href: "/admin/events", label: "Events & Timeline", icon: Calendar },
   { href: "/admin/membership", label: "Member Enrolments", icon: Layers },

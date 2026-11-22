@@ -74,7 +74,7 @@ export default async function AdminDashboardPage() {
           <span className="font-serif text-3xl font-bold text-white mt-2 block">
             {bearerCount}
           </span>
-          <span className="text-[11px] text-[#EF4444] mt-1 block">19 Resolution Members</span>
+          <span className="text-[11px] text-[#EF4444] mt-1 block">24 Leadership &amp; Council Members</span>
         </div>
 
         <div className="rounded-2xl border border-[#2D2D35] bg-[#141416] p-5 shadow-xs">

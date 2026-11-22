@@ -20,110 +20,175 @@ async function main() {
   });
   console.log("Admin account created:", admin.email);
 
-  // 2. Seed Official POAS Office Bearers (From Official Word Document)
+  // 2. Seed Official POAS Leadership, Advisors & Governing Body
+  await prisma.officeBearer.deleteMany({});
+
   const officeBearersData = [
-    // --- GOVERNING BODY ---
+    // =========================================================================
+    // 1. BOARD OF ADVISORS (According to POAS LH.pdf)
+    // =========================================================================
     {
-      name: "Sri Sanjeeb Kumar Mishra",
-      nameOdia: "ଶ୍ରୀ ସଞ୍ଜୀବ କୁମାର ମିଶ୍ର",
-      designation: "President",
-      category: "GOVERNING_BODY",
-      phone: "9439011880",
-      imageUrl: "/images/leadership/sanjeeb-kumar-mishra.jpeg",
-      bio: "President of Paschim Odisha Agrani Sangathan (POAS). Visionary leader driving organizational governance, cultural solidarity, and the Maa Samalei Mandir Project in Bhubaneswar.",
+      name: "Dr. Prabhash Ku. Singh",
+      nameOdia: "ଡ଼ ପ୍ରଭାସ କୁମାର ସିଂହ",
+      designation: "Advisor (Ex-MP)",
+      category: "ADVISORY_COUNCIL",
+      phone: null,
+      imageUrl: null,
+      bio: "Advisor to Paschim Odisha Agrani Sangathan. Former Member of Parliament (Ex-MP), providing strategic vision, legislative counsel, and patron guidance.",
       displayOrder: 1,
       isPublished: true,
     },
     {
-      name: "Sri Dukhishyam Bhanja",
-      nameOdia: "ଶ୍ରୀ ଦୁଃଖୀଶ୍ୟାମ ଭଞ୍ଜ",
-      designation: "Secretary General",
-      category: "GOVERNING_BODY",
-      phone: "9437150112",
-      imageUrl: "/images/leadership/dukhishyam-bhanja.jpeg",
-      bio: "Secretary General of Paschim Odisha Agrani Sangathan. Directing secretariat affairs, statewide member coordination, and executive deliberations.",
+      name: "Shri Bijaya Kumar Joshi",
+      nameOdia: "ଶ୍ରୀ ବିଜୟ କୁମାର ଯୋଶୀ",
+      designation: "Advisor (Retd. IRTS)",
+      category: "ADVISORY_COUNCIL",
+      phone: null,
+      imageUrl: null,
+      bio: "Advisor to Paschim Odisha Agrani Sangathan. Retired Indian Railway Traffic Service (IRTS) officer, guiding organizational governance and administrative outreach.",
       displayOrder: 2,
       isPublished: true,
     },
     {
-      name: "Sri Ashutosh Hota",
-      nameOdia: "ଶ୍ରୀ ଆଶୁତୋଷ ହୋତା",
-      designation: "Vice-President",
-      category: "GOVERNING_BODY",
-      phone: "9776016210",
-      imageUrl: null, // flagged for manual verification / photo update via admin
-      bio: "Vice-President of Paschim Odisha Agrani Sangathan. Guiding strategic outreach, patron relations, and institutional growth in the capital.",
+      name: "Shri Amiya Mohanty",
+      nameOdia: "ଶ୍ରୀ ଅମିୟ ମହାନ୍ତି",
+      designation: "Advisor (Retd. Banker)",
+      category: "ADVISORY_COUNCIL",
+      phone: null,
+      imageUrl: null,
+      bio: "Advisor to Paschim Odisha Agrani Sangathan. Retired senior banking executive, providing expert oversight on financial integrity and fiscal governance.",
       displayOrder: 3,
       isPublished: true,
     },
     {
-      name: "Anil Mohapatra",
-      nameOdia: "ଅନିଲ କୁମାର ମହାପାତ୍ର",
-      designation: "Secretary",
-      category: "GOVERNING_BODY",
-      phone: "9004830541",
-      imageUrl: "/images/leadership/anil-mohapatra.jpeg",
-      bio: "Secretary of Paschim Odisha Agrani Sangathan. Leading community mobilization, youth engagement, and public communications.",
+      name: "Shri Suresh Ku. Mahapatra",
+      nameOdia: "ଶ୍ରୀ ସୁରେଶ କୁମାର ମହାପାତ୍ର",
+      designation: "Advisor (Retd. Banker)",
+      category: "ADVISORY_COUNCIL",
+      phone: null,
+      imageUrl: null,
+      bio: "Advisor to Paschim Odisha Agrani Sangathan. Retired banker, counseling the Sangathan on institutional endowments and capital execution for the Maa Samalei Mandir Project.",
       displayOrder: 4,
       isPublished: true,
     },
     {
-      name: "Simanchal Patnaik",
-      nameOdia: "ସୀମାଞ୍ଚଳ ପଟ୍ଟନାୟକ",
-      designation: "Secretary",
-      category: "GOVERNING_BODY",
-      phone: "7008264805",
+      name: "Shri Mihir Ku. Meher",
+      nameOdia: "ଶ୍ରୀ ମିହିର କୁମାର ମେହେର",
+      designation: "Advisor (Theater Artist)",
+      category: "ADVISORY_COUNCIL",
+      phone: null,
       imageUrl: null,
-      bio: "Secretary of Paschim Odisha Agrani Sangathan. Facilitating cultural coordination and event planning across Western Odisha diaspora.",
+      bio: "Cultural Advisor to Paschim Odisha Agrani Sangathan. Acclaimed Sambalpuri theater exponent and performing artist, stewarding folk arts, drama, and heritage promotion.",
       displayOrder: 5,
       isPublished: true,
     },
+
+    // =========================================================================
+    // 2. GOVERNING BODY (According to NEWLY ELECTED GOVERNING BODY.docx & POAS LH.pdf)
+    // =========================================================================
     {
-      name: "Srutakirti Tripathy",
-      nameOdia: "ଶ୍ରୁତକୀର୍ତ୍ତି ତ୍ରିପାଠୀ",
-      designation: "Secretary",
+      name: "Shri Sanjeeb Mishra",
+      nameOdia: "ଶ୍ରୀ ସଞ୍ଜୀବ କୁମାର ମିଶ୍ର",
+      designation: "President (Advocate)",
       category: "GOVERNING_BODY",
-      phone: "6370516478",
-      imageUrl: "/images/leadership/srutakirti-tripathy.jpeg",
-      bio: "Secretary of Paschim Odisha Agrani Sangathan. Spearheading cultural programs, Sambalpuri handloom exhibitions, and literature initiatives.",
+      phone: "9439011880",
+      imageUrl: "/images/leadership/sanjeeb-kumar-mishra.jpeg",
+      bio: "President of Paschim Odisha Agrani Sangathan (POAS). Advocate leading legal governance, constitutional administration, and spearheading the landmark Maa Samalei Mandir Project in Bhubaneswar.",
       displayOrder: 6,
       isPublished: true,
     },
     {
-      name: "Sri Nitin Ananda",
-      nameOdia: "ଶ୍ରୀ ନିତିନ ଆନନ୍ଦ",
-      designation: "Secretary",
+      name: "Shri Ashutosh Hota",
+      nameOdia: "ଶ୍ରୀ ଆଶୁତୋଷ ହୋତା",
+      designation: "Working President / Vice-President (Advocate)",
       category: "GOVERNING_BODY",
-      phone: "7008806969",
-      imageUrl: "/images/leadership/nitin-ananda.jpeg",
-      bio: "Secretary of Paschim Odisha Agrani Sangathan. Managing media relations, documentation, and stakeholder outreach.",
+      phone: "9776016210",
+      imageUrl: null,
+      bio: "Working President & Vice-President of Paschim Odisha Agrani Sangathan. Eminent Advocate guiding operational leadership, executive deliberations, and strategic alliance building.",
       displayOrder: 7,
       isPublished: true,
     },
     {
-      name: "Lokesh Kumar Jagat",
-      nameOdia: "ଲୋକନାଥ ଜଗତ",
-      designation: "Treasurer",
+      name: "Shri Dukhi Shyam Bhanja",
+      nameOdia: "ଶ୍ରୀ ଦୁଃଖୀଶ୍ୟାମ ଭଞ୍ଜ",
+      designation: "Secretary General (Social Worker)",
       category: "GOVERNING_BODY",
-      phone: "7609050398",
-      imageUrl: "/images/leadership/lokesh-kumar-jagat.jpeg",
-      bio: "Treasurer of Paschim Odisha Agrani Sangathan. Maintaining institutional financial transparency, audited statements, and statutory compliance.",
+      phone: "9437150112",
+      imageUrl: "/images/leadership/dukhishyam-bhanja.jpeg",
+      bio: "Secretary General of Paschim Odisha Agrani Sangathan. Dedicated Social Worker directing secretariat affairs, statewide member coordination, and executive council deliberations.",
       displayOrder: 8,
       isPublished: true,
     },
     {
-      name: "Raj Kumar Das",
-      nameOdia: "ରାଜ କୁମାର ଦାସ",
-      designation: "Project Coordinator",
+      name: "Shri Anil Kumar Mahapatra",
+      nameOdia: "ଅନିଲ କୁମାର ମହାପାତ୍ର",
+      designation: "Secretary (Corporate Leader)",
       category: "GOVERNING_BODY",
-      phone: "7008609014",
-      imageUrl: "/images/leadership/raj-kumar-dash.jpeg",
-      bio: "Project Coordinator of Paschim Odisha Agrani Sangathan. Overseeing execution of the Maa Samalei Mandir Project blueprint and volunteer logistics.",
+      phone: "9004830541",
+      imageUrl: "/images/leadership/anil-mohapatra.jpeg",
+      bio: "Secretary of Paschim Odisha Agrani Sangathan. Corporate Leader stewarding operational planning, corporate outreach, and youth mentorship.",
       displayOrder: 9,
       isPublished: true,
     },
+    {
+      name: "Shri Simanchal Patnaik",
+      nameOdia: "ସୀମାଞ୍ଚଳ ପଟ୍ଟନାୟକ",
+      designation: "Secretary (Sr. Journalist)",
+      category: "GOVERNING_BODY",
+      phone: "7008264805",
+      imageUrl: null,
+      bio: "Secretary of Paschim Odisha Agrani Sangathan. Senior Journalist directing press relations, publications, cultural documentation, and diaspora outreach.",
+      displayOrder: 10,
+      isPublished: true,
+    },
+    {
+      name: "Smt. Srutakirti Tripathy",
+      nameOdia: "ଶ୍ରୁତକୀର୍ତ୍ତି ତ୍ରିପାଠୀ",
+      designation: "Secretary (Writer)",
+      category: "GOVERNING_BODY",
+      phone: "6370516478",
+      imageUrl: "/images/leadership/srutakirti-tripathy.jpeg",
+      bio: "Secretary of Paschim Odisha Agrani Sangathan. Acclaimed Writer spearheading Sambalpuri literature, handloom heritage, and cultural programming.",
+      displayOrder: 11,
+      isPublished: true,
+    },
+    {
+      name: "Er. Nitin Anand",
+      nameOdia: "ଶ୍ରୀ ନିତିନ ଆନନ୍ଦ",
+      designation: "Secretary (Consultant)",
+      category: "GOVERNING_BODY",
+      phone: "7008806969",
+      imageUrl: "/images/leadership/nitin-ananda.jpeg",
+      bio: "Secretary of Paschim Odisha Agrani Sangathan. Professional Engineering Consultant directing media architecture, institutional documentation, and digital outreach.",
+      displayOrder: 12,
+      isPublished: true,
+    },
+    {
+      name: "Shri Lokanath Jagat",
+      nameOdia: "ଲୋକନାଥ ଜଗତ",
+      designation: "Treasurer (Ph.D Scholar)",
+      category: "GOVERNING_BODY",
+      phone: "7609050398",
+      imageUrl: "/images/leadership/lokesh-kumar-jagat.jpeg",
+      bio: "Treasurer of Paschim Odisha Agrani Sangathan. Ph.D Research Scholar ensuring strict financial transparency, audited compliance, and budgetary control.",
+      displayOrder: 13,
+      isPublished: true,
+    },
+    {
+      name: "Er. Rajkumar Dash",
+      nameOdia: "ରାଜ କୁମାର ଦାଶ",
+      designation: "Project Co-ordinator (Consultant)",
+      category: "GOVERNING_BODY",
+      phone: "7008609014",
+      imageUrl: "/images/leadership/raj-kumar-dash.jpeg",
+      bio: "Project Co-ordinator of Paschim Odisha Agrani Sangathan. Engineering Consultant supervising technical planning, site execution, and architectural progress for the Maa Samalei Mandir Project.",
+      displayOrder: 14,
+      isPublished: true,
+    },
 
-    // --- EXECUTIVE BODY ---
+    // =========================================================================
+    // 3. EXECUTIVE BODY (According to NEWLY ELECTED GOVERNING BODY.docx Table 2)
+    // =========================================================================
     {
       name: "Sri Sadananda Bhoi",
       nameOdia: "ଶ୍ରୀ ସଦାନନ୍ଦ ଭୋଇ",
@@ -132,7 +197,7 @@ async function main() {
       phone: "9040434347",
       imageUrl: "/images/leadership/sadananda-bhoi.jpeg",
       bio: "Elected Executive Member contributing to organizational initiatives and Western Odisha student welfare in Bhubaneswar.",
-      displayOrder: 10,
+      displayOrder: 15,
       isPublished: true,
     },
     {
@@ -143,7 +208,7 @@ async function main() {
       phone: "8895179419",
       imageUrl: null,
       bio: "Elected Executive Member championing women empowerment and Western Odia artisanal preservation.",
-      displayOrder: 11,
+      displayOrder: 16,
       isPublished: true,
     },
     {
@@ -154,7 +219,7 @@ async function main() {
       phone: "9438337890",
       imageUrl: "/images/leadership/srutishikha-mahapatra.jpeg",
       bio: "Elected Executive Member representing cultural education and social service programs.",
-      displayOrder: 12,
+      displayOrder: 17,
       isPublished: true,
     },
     {
@@ -165,7 +230,7 @@ async function main() {
       phone: "8908774862",
       imageUrl: "/images/leadership/suryasnata-bohidar.jpeg",
       bio: "Elected Executive Member active in community gatherings, festive organizing, and social solidarity.",
-      displayOrder: 13,
+      displayOrder: 18,
       isPublished: true,
     },
     {
@@ -176,7 +241,7 @@ async function main() {
       phone: "6370714880",
       imageUrl: null,
       bio: "Elected Executive Member assisting with ground events, volunteer groups, and community outreach.",
-      displayOrder: 14,
+      displayOrder: 19,
       isPublished: true,
     },
     {
@@ -187,7 +252,7 @@ async function main() {
       phone: "9439600005",
       imageUrl: "/images/leadership/chandra-sekhar-sahoo.jpeg",
       bio: "Elected Executive Member engaged in membership campaigns and community relations across the capital.",
-      displayOrder: 15,
+      displayOrder: 20,
       isPublished: true,
     },
     {
@@ -198,7 +263,7 @@ async function main() {
       phone: "7978284334",
       imageUrl: "/images/leadership/samir-patel.jpeg",
       bio: "Elected Executive Member coordinating logistics and diaspora network programs.",
-      displayOrder: 16,
+      displayOrder: 21,
       isPublished: true,
     },
     {
@@ -209,7 +274,7 @@ async function main() {
       phone: "8658430326",
       imageUrl: "/images/leadership/hrusikesh-pradhan.jpeg",
       bio: "Elected Executive Member dedicated to organizational strengthening and community support.",
-      displayOrder: 17,
+      displayOrder: 22,
       isPublished: true,
     },
     {
@@ -220,7 +285,7 @@ async function main() {
       phone: "9938137175",
       imageUrl: "/images/leadership/bamadev-baghar.jpeg",
       bio: "Elected Executive Member participating in executive meetings and community advocacy.",
-      displayOrder: 18,
+      displayOrder: 23,
       isPublished: true,
     },
     {
@@ -231,18 +296,13 @@ async function main() {
       phone: "8895394188",
       imageUrl: "/images/leadership/chirag-rath.jpeg",
       bio: "Elected Executive Member supporting digital communication, youth chapters, and volunteer teams.",
-      displayOrder: 19,
+      displayOrder: 24,
       isPublished: true,
     },
   ];
 
   for (const person of officeBearersData) {
-    const existing = await prisma.officeBearer.findFirst({ where: { name: person.name } });
-    if (!existing) {
-      await prisma.officeBearer.create({ data: person });
-    } else {
-      await prisma.officeBearer.update({ where: { id: existing.id }, data: person });
-    }
+    await prisma.officeBearer.create({ data: person });
   }
   console.log("Official POAS Office Bearers seeded:", officeBearersData.length);
 
@@ -406,7 +466,8 @@ async function main() {
     { key: "contact_phone", value: "+91 94390 11880", description: "Primary Phone Number (President)" },
     { key: "contact_phones_additional", value: "+91 94371 50112, 97760 16210, 90048 30541, 76090 50398", description: "Additional Helpline Numbers" },
     { key: "contact_whatsapp", value: "+919439011880", description: "Official WhatsApp Number" },
-    { key: "headquarters_address", value: "Plot No. A-31, Kharabela Nagar, Bhubaneswar, Odisha", description: "Secretariat Headquarters" },
+    { key: "headquarters_address", value: "Plot No.: 71, Satabdi Nagar, Bhubaneswar, PIN-751003, Dist.: Khordha, Odisha", description: "Official Registered Secretariat Address (POAS LH.pdf)" },
+    { key: "registration_number", value: "REGD. NO.: KRD 6761-443, 95-96", description: "Official Registration Number (POAS LH.pdf)" },
     { key: "venue_city", value: "Bhubaneswar, Odisha, India", description: "Headquarters City" },
     { key: "maa_samalei_visible", value: "true", description: "Show Maa Samalei Darshan on Homepage" },
   ];

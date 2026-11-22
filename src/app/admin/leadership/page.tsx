@@ -23,7 +23,7 @@ export default async function AdminLeadershipPage() {
           Governing Body &amp; Leadership Management
         </h1>
         <p className="text-xs text-[#9CA3AF] mt-1">
-          Manage the official 19-member Governing Body and Executive Council extracted from the POAS resolution document.
+          Manage the official 24-member Leadership &amp; Advisory Council (POAS LH.pdf) and Governing Body &amp; Executive Council (Electoral Resolution docx).
         </p>
       </div>
 
@@ -83,8 +83,8 @@ export default async function AdminLeadershipPage() {
                 className="w-full rounded-xl border border-[#2D2D35] bg-[#0B0B0C] p-2.5 text-xs text-white focus:border-[#A31D1D] focus:outline-none"
               >
                 <option value="GOVERNING_BODY">Governing Body (ପରିଚାଳନା ପରିଷଦ)</option>
+                <option value="ADVISORY_COUNCIL">Board of Advisors (POAS LH.pdf)</option>
                 <option value="EXECUTIVE_BODY">Executive Body (କାର୍ଯ୍ୟକାରିଣୀ କମିଟି)</option>
-                <option value="PATRON">Patron / Advisor</option>
               </select>
             </div>
 
