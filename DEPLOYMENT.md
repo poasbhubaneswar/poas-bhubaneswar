@@ -46,7 +46,7 @@ Vercel provides native, zero-configuration hosting for Next.js applications:
    - `NEXT_PUBLIC_SITE_URL`: Same value as `NEXTAUTH_URL`
    - `NEXT_PUBLIC_SITE_NAME`: `POAS – Paschim Odisha Agrani Sangathana`
 5. Click **"Deploy"**.
-6. The `package.json` includes `"postinstall": "prisma generate"` and `"build": "prisma generate && next build"`, ensuring the Prisma client compiles seamlessly on Vercel build servers.
+6. The `package.json` includes `"postinstall": "prisma generate"`, ensuring the Prisma client compiles seamlessly on Vercel build servers.
 
 ---
 
