@@ -80,7 +80,7 @@ export function SambalpuriMandalaAura({ className = "" }: MandalaProps) {
         {/* 3. INNER CORE (Subtle Sacred Pulse): 8-Petal Solar Lotus */}
         <g className="animate-mandala-pulse origin-center">
           <circle cx="300" cy="300" r="140" stroke="currentColor" strokeWidth="1.5" opacity="0.9" />
-          <circle cx="300" cy="300" r="115" stroke="#FFFFFF" strokeWidth="1.2" fill="url(#mandala-glow)" fillOpacity="0.3" />
+          <circle cx="300" cy="300" r="115" stroke="#FFFFFF" strokeWidth="1.2" fill="url(#mandala-glow)" fillOpacity="0.1" />
 
           {Array.from({ length: 8 }).map((_, i) => {
             const angle = (i * 360) / 8;

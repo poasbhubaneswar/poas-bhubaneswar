@@ -40,14 +40,14 @@ export function Header() {
       >
         {/* POAS Brand Logo & Bilingual Title */}
         <Link href="/" className="flex items-center gap-2.5 sm:gap-3 group flex-shrink-0">
-          <div className="relative flex h-9 w-9 sm:h-11 sm:w-11 flex-none items-center justify-center rounded-full bg-black/60 border border-[#A31D1D]/50 shadow-inner overflow-hidden transition-transform duration-200 group-hover:scale-105">
+          <div className="relative flex h-10 w-10 sm:h-12 sm:w-12 flex-none items-center justify-center rounded-full bg-white border-2 border-[#A31D1D] shadow-[0_2px_12px_rgba(0,0,0,0.35)] overflow-hidden transition-transform duration-200 group-hover:scale-105 p-1">
             <Image
               src="/images/poas-logo.png"
               alt="Official POAS Logo"
               fill
-              sizes="44px"
+              sizes="48px"
               priority
-              className="object-contain p-0.5"
+              className="object-contain"
             />
           </div>
           <div className="flex flex-col">

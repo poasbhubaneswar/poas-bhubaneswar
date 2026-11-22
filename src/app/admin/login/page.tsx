@@ -17,13 +17,13 @@ export default function AdminLoginPage() {
         
         {/* Emblem */}
         <div className="flex flex-col items-center text-center mb-8">
-          <div className="relative flex h-14 w-14 items-center justify-center rounded-full bg-black border-2 border-[#A31D1D] mb-3 shadow-[0_0_20px_rgba(163,29,29,0.5)] overflow-hidden">
+          <div className="relative flex h-16 w-16 items-center justify-center rounded-full bg-white border-2 border-[#A31D1D] mb-3 shadow-[0_0_25px_rgba(255,255,255,0.25),0_0_15px_rgba(163,29,29,0.5)] overflow-hidden p-1.5">
             <Image
               src="/images/poas-logo.png"
               alt="POAS Official Logo"
               fill
-              sizes="56px"
-              className="object-contain p-1"
+              sizes="64px"
+              className="object-contain"
             />
           </div>
           <h1 className="font-serif text-2xl font-bold text-white">

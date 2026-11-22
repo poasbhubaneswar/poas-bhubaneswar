@@ -45,13 +45,13 @@ export default async function AdminLayout({
         <div>
           {/* Logo Brand */}
           <div className="flex items-center gap-3 pb-6 border-b border-[#2D2D35]">
-            <div className="relative h-10 w-10 rounded-full bg-black border border-[#A31D1D] overflow-hidden flex items-center justify-center flex-none">
+            <div className="relative h-11 w-11 rounded-full bg-white border-2 border-[#A31D1D] overflow-hidden flex items-center justify-center flex-none p-1 shadow-sm">
               <Image
                 src="/images/poas-logo.png"
                 alt="POAS Logo"
                 fill
-                sizes="40px"
-                className="object-contain p-0.5"
+                sizes="44px"
+                className="object-contain"
               />
             </div>
             <div>

@@ -83,20 +83,44 @@ export default async function HomePage() {
         {/* Ambient Maa Samalei Watermark Iconography */}
         <MaaSamaleiWatermark className="absolute right-4 top-1/4 w-[420px] max-w-[45vw] opacity-35 -z-10" />
 
-        {/* Sacred Concentric Sambalpuri Mandala Aura behind title */}
-        <SambalpuriMandalaAura className="top-1/3 opacity-40" />
+        {/* Sacred Maa Samalei Deity Photograph in Hero Background (Positioned directly in the back of the Ring Animation) */}
+        <div
+          aria-hidden="true"
+          className="pointer-events-none select-none absolute left-1/2 top-1/3 -translate-x-1/2 -translate-y-1/2 -z-10 flex items-center justify-center"
+        >
+          {/* Divine Crimson & Amber Radiance Aura Halo */}
+          <div className="absolute w-[460px] h-[460px] sm:w-[560px] sm:h-[560px] rounded-full bg-gradient-to-tr from-[#A31D1D]/45 via-[#EF4444]/25 to-amber-500/20 blur-[85px] animate-pulse-subtle" />
+
+          {/* Authentic Maa Samalei Portrait with Ethereal Circular Feathering */}
+          <div className="relative w-[300px] h-[300px] sm:w-[380px] sm:h-[380px] lg:w-[440px] lg:h-[440px] rounded-full overflow-hidden border-2 border-[#A31D1D]/40 shadow-[0_0_60px_rgba(163,29,29,0.55)]">
+            <Image
+              src="/images/maa-samalei-sacred-darshan.jpeg"
+              alt="Maa Samaleswari Sacred Darshan"
+              fill
+              priority
+              sizes="(max-width: 768px) 380px, 440px"
+              className="object-cover object-top opacity-60 scale-105"
+            />
+            {/* Ethereal Vignette Gradients for Seamless Cosmic Blending */}
+            <div className="absolute inset-0 bg-radial-[at_50%_40%] from-transparent via-[#0B0B0C]/35 to-[#0B0B0C]/85" />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#0B0B0C] via-transparent to-[#A31D1D]/25" />
+          </div>
+        </div>
+
+        {/* Sacred Concentric Sambalpuri Mandala Aura (Rotating Rings Animation in front of Maa Samalei) */}
+        <SambalpuriMandalaAura className="top-1/3 opacity-60" />
 
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center relative z-10 flex flex-col items-center">
           
-          {/* Official POAS Logo Presentation */}
-          <div className="relative mb-6 flex h-24 w-24 sm:h-28 sm:w-28 items-center justify-center rounded-full bg-black/80 border-2 border-[#A31D1D] shadow-[0_0_30px_rgba(163,29,29,0.5)] overflow-hidden animate-pulse-subtle">
+          {/* Official POAS Logo Presentation with Clean White Background */}
+          <div className="relative mb-6 flex h-24 w-24 sm:h-28 sm:w-28 items-center justify-center rounded-full bg-white border-2 border-[#A31D1D] shadow-[0_0_35px_rgba(255,255,255,0.25),0_0_25px_rgba(163,29,29,0.5)] overflow-hidden p-2 transition-transform duration-300 hover:scale-105">
             <Image
               src="/images/poas-logo.png"
               alt="Paschim Odisha Agrani Sangathana Official Logo"
               fill
               priority
               sizes="112px"
-              className="object-contain p-2"
+              className="object-contain"
             />
           </div>
 

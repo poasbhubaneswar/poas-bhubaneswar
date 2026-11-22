@@ -26,13 +26,13 @@ export async function Footer() {
           {/* Column 1 & 2: Brand & Heritage Identity */}
           <div className="lg:col-span-2 space-y-4">
             <div className="flex items-center gap-3">
-              <div className="relative flex h-12 w-12 items-center justify-center rounded-full bg-black border border-[#A31D1D]/70 overflow-hidden">
+              <div className="relative flex h-13 w-13 flex-none items-center justify-center rounded-full bg-white border-2 border-[#A31D1D] shadow-md overflow-hidden p-1">
                 <Image
                   src="/images/poas-logo.png"
                   alt="POAS Official Logo"
                   fill
-                  sizes="48px"
-                  className="object-contain p-1"
+                  sizes="52px"
+                  className="object-contain"
                 />
               </div>
               <div>
