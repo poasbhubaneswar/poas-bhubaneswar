@@ -2,7 +2,7 @@ import { prisma } from "@/lib/prisma";
 import Image from "next/image";
 import { SambalpuriBand, ShimmerBorder } from "@/components/ui/SambalpuriMotif";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
-import { Users, Phone, Mail, Shield, CheckCircle2, AlertCircle } from "lucide-react";
+import { Users, Shield, CheckCircle2, AlertCircle } from "lucide-react";
 
 export const dynamic = "force-dynamic";
 export const revalidate = 0;
@@ -16,6 +16,16 @@ export default async function LeadershipPage() {
   const allBearers = await prisma.officeBearer.findMany({
     where: { isPublished: true },
     orderBy: { displayOrder: "asc" },
+    select: {
+      id: true,
+      name: true,
+      nameOdia: true,
+      designation: true,
+      category: true,
+      imageUrl: true,
+      bio: true,
+      displayOrder: true,
+    },
   });
 
   const governingBody = allBearers.filter((b) => b.category === "GOVERNING_BODY");
@@ -117,17 +127,9 @@ export default async function LeadershipPage() {
                   </div>
 
                   <div className="mt-6 pt-4 border-t border-[#2D2D35] flex items-center justify-between text-xs text-[#9CA3AF]">
-                    {member.phone ? (
-                      <a
-                        href={`tel:${member.phone}`}
-                        className="inline-flex items-center gap-1.5 hover:text-white transition-colors"
-                      >
-                        <Phone className="h-3.5 w-3.5 text-[#EF4444]" />
-                        <span>{member.phone}</span>
-                      </a>
-                    ) : (
-                      <span>Official Contact</span>
-                    )}
+                    <span className="text-[11px] text-[#9CA3AF] uppercase tracking-wider font-semibold">
+                      Governing Council
+                    </span>
 
                     <span className="inline-flex items-center gap-1 text-[11px] text-green-400 font-medium">
                       <CheckCircle2 className="h-3.5 w-3.5" /> Elected
@@ -208,17 +210,13 @@ export default async function LeadershipPage() {
                   </div>
 
                   <div className="mt-5 pt-3 border-t border-[#2D2D35] flex items-center justify-between text-xs text-[#9CA3AF]">
-                    {member.phone ? (
-                      <a
-                        href={`tel:${member.phone}`}
-                        className="inline-flex items-center gap-1 hover:text-white transition-colors"
-                      >
-                        <Phone className="h-3 w-3 text-[#EF4444]" />
-                        <span>{member.phone}</span>
-                      </a>
-                    ) : (
-                      <span>POAS Member</span>
-                    )}
+                    <span className="text-[11px] text-[#9CA3AF] uppercase tracking-wider font-semibold">
+                      Executive Council
+                    </span>
+
+                    <span className="inline-flex items-center gap-1 text-[11px] text-green-400 font-medium">
+                      <CheckCircle2 className="h-3.5 w-3.5" /> Elected
+                    </span>
                   </div>
                 </div>
               </div>

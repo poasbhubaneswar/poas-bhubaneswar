@@ -117,7 +117,7 @@ async function main() {
       designation: "Project Coordinator",
       category: "GOVERNING_BODY",
       phone: "7008609014",
-      imageUrl: null,
+      imageUrl: "/images/leadership/raj-kumar-dash.jpeg",
       bio: "Project Coordinator of Paschim Odisha Agrani Sangathan. Overseeing execution of the Maa Samalei Mandir Project blueprint and volunteer logistics.",
       displayOrder: 9,
       isPublished: true,

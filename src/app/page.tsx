@@ -7,7 +7,7 @@ import { GlowingBorderRunner } from "@/components/ui/BorderBeam";
 import { SpotlightCard } from "@/components/ui/SpotlightCard";
 import { ImpactMetrics } from "@/components/ui/ImpactMetrics";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
-import { ArrowRight, Calendar, MapPin, Users, Heart, Sparkles, Building2, Shield, Check, Phone } from "lucide-react";
+import { ArrowRight, Calendar, MapPin, Users, Heart, Sparkles, Building2, Shield, Check } from "lucide-react";
 
 export const dynamic = "force-dynamic";
 export const revalidate = 0;
@@ -23,6 +23,16 @@ export default async function HomePage() {
       where: { isPublished: true },
       orderBy: { displayOrder: "asc" },
       take: 4,
+      select: {
+        id: true,
+        name: true,
+        nameOdia: true,
+        designation: true,
+        category: true,
+        imageUrl: true,
+        bio: true,
+        displayOrder: true,
+      },
     }),
     prisma.meeting.findMany({
       where: { isPublished: true },
@@ -381,15 +391,6 @@ export default async function HomePage() {
                       {ob.designation}
                     </p>
                   </div>
-
-                  {ob.phone && (
-                    <div className="mt-4 pt-3 border-t border-[#2D2D35] flex items-center gap-1.5 text-xs text-[#9CA3AF]">
-                      <Phone className="h-3.5 w-3.5 text-[#EF4444]" />
-                      <a href={`tel:${ob.phone}`} className="hover:text-white transition-colors">
-                        {ob.phone}
-                      </a>
-                    </div>
-                  )}
                 </div>
               </SpotlightCard>
             </ScrollReveal>
