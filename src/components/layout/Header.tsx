@@ -9,6 +9,7 @@ import { Menu, X, Shield, Sparkles } from "lucide-react";
 const NAV_ITEMS = [
   { href: "/", label: "Home" },
   { href: "/about", label: "About POAS" },
+  { href: "/governing-body", label: "Governing Body" },
   { href: "/leadership", label: "Leadership" },
   { href: "/meetings", label: "Meetings" },
   { href: "/maasamalei", label: "Maa Samalei Project" },

@@ -33,66 +33,7 @@ async function main() {
 
   const officeBearersData = [
     // =========================================================================
-    // 1. BOARD OF ADVISORS (According to POAS LH.pdf)
-    // =========================================================================
-    {
-      name: "Dr. Prabhash Ku. Singh",
-      nameOdia: "ଡ଼ ପ୍ରଭାସ କୁମାର ସିଂହ",
-      designation: "Advisor (Ex-MP)",
-      category: "ADVISORY_COUNCIL",
-      phone: null,
-      imageUrl: "/images/leadership/dr-prabhash-kumar-singh.jpeg",
-      bio: "Advisor to Paschim Odisha Agrani Sangathan. Former Member of Parliament (Ex-MP), providing strategic vision, legislative counsel, and patron guidance.",
-      displayOrder: 1,
-      isPublished: true,
-    },
-    {
-      name: "Shri Bijaya Kumar Joshi",
-      nameOdia: "ଶ୍ରୀ ବିଜୟ କୁମାର ଯୋଶୀ",
-      designation: "Advisor (Retd. IRTS)",
-      category: "ADVISORY_COUNCIL",
-      phone: null,
-      imageUrl: "/images/leadership/bijaya-kumar-joshi.jpeg",
-      bio: "Advisor to Paschim Odisha Agrani Sangathan. Retired Indian Railway Traffic Service (IRTS) officer, guiding organizational governance and administrative outreach.",
-      displayOrder: 2,
-      isPublished: true,
-    },
-    {
-      name: "Shri Amiya Mohanty",
-      nameOdia: "ଶ୍ରୀ ଅମିୟ ମହାନ୍ତି",
-      designation: "Advisor (Retd. Banker)",
-      category: "ADVISORY_COUNCIL",
-      phone: null,
-      imageUrl: null,
-      bio: "Advisor to Paschim Odisha Agrani Sangathan. Retired senior banking executive, providing expert oversight on financial integrity and fiscal governance.",
-      displayOrder: 3,
-      isPublished: true,
-    },
-    {
-      name: "Shri Suresh Ku. Mahapatra",
-      nameOdia: "ଶ୍ରୀ ସୁରେଶ କୁମାର ମହାପାତ୍ର",
-      designation: "Advisor (Retd. Banker)",
-      category: "ADVISORY_COUNCIL",
-      phone: null,
-      imageUrl: "/images/leadership/suresh-kumar-mahapatra.jpeg",
-      bio: "Advisor to Paschim Odisha Agrani Sangathan. Retired banker, counseling the Sangathan on institutional endowments and capital execution for the Maa Samalei Mandir Project.",
-      displayOrder: 4,
-      isPublished: true,
-    },
-    {
-      name: "Shri Mihir Ku. Meher",
-      nameOdia: "ଶ୍ରୀ ମିହିର କୁମାର ମେହେର",
-      designation: "Advisor (Theater Artist)",
-      category: "ADVISORY_COUNCIL",
-      phone: null,
-      imageUrl: "/images/leadership/mihir-kumar-meher.jpeg",
-      bio: "Cultural Advisor to Paschim Odisha Agrani Sangathan. Acclaimed Sambalpuri theater exponent and performing artist, stewarding folk arts, drama, and heritage promotion.",
-      displayOrder: 5,
-      isPublished: true,
-    },
-
-    // =========================================================================
-    // 2. GOVERNING BODY (According to NEWLY ELECTED GOVERNING BODY.docx & POAS LH.pdf)
+    // 1. GOVERNING BODY (According to NEWLY ELECTED GOVERNING BODY.docx & POAS LH.pdf)
     // =========================================================================
     {
       name: "Shri Sanjeeb Mishra",
@@ -102,7 +43,7 @@ async function main() {
       phone: "9439011880",
       imageUrl: "/images/leadership/sanjeeb-kumar-mishra.jpeg",
       bio: "President of Paschim Odisha Agrani Sangathan (POAS). Advocate leading legal governance, constitutional administration, and spearheading the landmark Maa Samalei Mandir Project in Bhubaneswar.",
-      displayOrder: 6,
+      displayOrder: 1,
       isPublished: true,
     },
     {
@@ -113,7 +54,7 @@ async function main() {
       phone: "9776016210",
       imageUrl: "/images/leadership/ashutosh-hota.jpeg",
       bio: "Working President & Vice-President of Paschim Odisha Agrani Sangathan. Eminent Advocate guiding operational leadership, executive deliberations, and strategic alliance building.",
-      displayOrder: 7,
+      displayOrder: 2,
       isPublished: true,
     },
     {
@@ -124,7 +65,7 @@ async function main() {
       phone: "9437150112",
       imageUrl: "/images/leadership/dukhishyam-bhanja.jpeg",
       bio: "Secretary General of Paschim Odisha Agrani Sangathan. Dedicated Social Worker directing secretariat affairs, statewide member coordination, and executive council deliberations.",
-      displayOrder: 8,
+      displayOrder: 3,
       isPublished: true,
     },
     {
@@ -135,7 +76,7 @@ async function main() {
       phone: "9004830541",
       imageUrl: "/images/leadership/anil-mohapatra.jpeg",
       bio: "Secretary of Paschim Odisha Agrani Sangathan. Corporate Leader stewarding operational planning, corporate outreach, and youth mentorship.",
-      displayOrder: 9,
+      displayOrder: 4,
       isPublished: true,
     },
     {
@@ -146,7 +87,7 @@ async function main() {
       phone: "7008264805",
       imageUrl: null,
       bio: "Secretary of Paschim Odisha Agrani Sangathan. Senior Journalist directing press relations, publications, cultural documentation, and diaspora outreach.",
-      displayOrder: 10,
+      displayOrder: 5,
       isPublished: true,
     },
     {
@@ -157,7 +98,7 @@ async function main() {
       phone: "6370516478",
       imageUrl: "/images/leadership/srutakirti-tripathy.jpeg",
       bio: "Secretary of Paschim Odisha Agrani Sangathan. Acclaimed Writer spearheading Sambalpuri literature, handloom heritage, and cultural programming.",
-      displayOrder: 11,
+      displayOrder: 6,
       isPublished: true,
     },
     {
@@ -168,7 +109,7 @@ async function main() {
       phone: "7008806969",
       imageUrl: "/images/leadership/nitin-ananda.jpeg",
       bio: "Secretary of Paschim Odisha Agrani Sangathan. Professional Engineering Consultant directing media architecture, institutional documentation, and digital outreach.",
-      displayOrder: 12,
+      displayOrder: 7,
       isPublished: true,
     },
     {
@@ -179,7 +120,7 @@ async function main() {
       phone: "7609050398",
       imageUrl: "/images/leadership/lokesh-kumar-jagat.jpeg",
       bio: "Treasurer of Paschim Odisha Agrani Sangathan. Ph.D Research Scholar ensuring strict financial transparency, audited compliance, and budgetary control.",
-      displayOrder: 13,
+      displayOrder: 8,
       isPublished: true,
     },
     {
@@ -190,6 +131,65 @@ async function main() {
       phone: "7008609014",
       imageUrl: "/images/leadership/raj-kumar-dash.jpeg",
       bio: "Project Co-ordinator of Paschim Odisha Agrani Sangathan. Engineering Consultant supervising technical planning, site execution, and architectural progress for the Maa Samalei Mandir Project.",
+      displayOrder: 9,
+      isPublished: true,
+    },
+
+    // =========================================================================
+    // 2. BOARD OF ADVISORS / LEADERSHIP (According to POAS LH.pdf)
+    // =========================================================================
+    {
+      name: "Dr. Prabhash Ku. Singh",
+      nameOdia: "ଡ଼ ପ୍ରଭାସ କୁମାର ସିଂହ",
+      designation: "Advisor (Ex-MP)",
+      category: "ADVISORY_COUNCIL",
+      phone: null,
+      imageUrl: "/images/leadership/dr-prabhash-kumar-singh.jpeg",
+      bio: "Advisor to Paschim Odisha Agrani Sangathan. Former Member of Parliament (Ex-MP), providing strategic vision, legislative counsel, and patron guidance.",
+      displayOrder: 10,
+      isPublished: true,
+    },
+    {
+      name: "Shri Bijaya Kumar Joshi",
+      nameOdia: "ଶ୍ରୀ ବିଜୟ କୁମାର ଯୋଶୀ",
+      designation: "Advisor (Retd. IRTS)",
+      category: "ADVISORY_COUNCIL",
+      phone: null,
+      imageUrl: "/images/leadership/bijaya-kumar-joshi.jpeg",
+      bio: "Advisor to Paschim Odisha Agrani Sangathan. Retired Indian Railway Traffic Service (IRTS) officer, guiding organizational governance and administrative outreach.",
+      displayOrder: 11,
+      isPublished: true,
+    },
+    {
+      name: "Shri Amiya Mohanty",
+      nameOdia: "ଶ୍ରୀ ଅମିୟ ମହାନ୍ତି",
+      designation: "Advisor (Retd. Banker)",
+      category: "ADVISORY_COUNCIL",
+      phone: null,
+      imageUrl: null,
+      bio: "Advisor to Paschim Odisha Agrani Sangathan. Retired senior banking executive, providing expert oversight on financial integrity and fiscal governance.",
+      displayOrder: 12,
+      isPublished: true,
+    },
+    {
+      name: "Shri Suresh Ku. Mahapatra",
+      nameOdia: "ଶ୍ରୀ ସୁରେଶ କୁମାର ମହାପାତ୍ର",
+      designation: "Advisor (Retd. Banker)",
+      category: "ADVISORY_COUNCIL",
+      phone: null,
+      imageUrl: "/images/leadership/suresh-kumar-mahapatra.jpeg",
+      bio: "Advisor to Paschim Odisha Agrani Sangathan. Retired banker, counseling the Sangathan on institutional endowments and capital execution for the Maa Samalei Mandir Project.",
+      displayOrder: 13,
+      isPublished: true,
+    },
+    {
+      name: "Shri Mihir Ku. Meher",
+      nameOdia: "ଶ୍ରୀ ମିହିର କୁମାର ମେହେର",
+      designation: "Advisor (Theater Artist)",
+      category: "ADVISORY_COUNCIL",
+      phone: null,
+      imageUrl: "/images/leadership/mihir-kumar-meher.jpeg",
+      bio: "Cultural Advisor to Paschim Odisha Agrani Sangathan. Acclaimed Sambalpuri theater exponent and performing artist, stewarding folk arts, drama, and heritage promotion.",
       displayOrder: 14,
       isPublished: true,
     },
