@@ -1,7 +1,8 @@
 import { prisma } from "@/lib/prisma";
 import { getAdminSession } from "@/lib/session";
 import { redirect } from "next/navigation";
-import { updateDonationStatus } from "@/actions/admin";
+import { updateDonationStatus, deleteDonationPledge } from "@/actions/admin";
+import { AdminDeleteButton } from "@/components/admin/AdminDeleteButton";
 import { formatDate } from "@/lib/utils";
 
 export default async function AdminDonationsPage() {
@@ -71,14 +72,22 @@ export default async function AdminDonationsPage() {
                     </td>
                     <td className="p-4 text-[#9CA3AF]">{formatDate(d.createdAt)}</td>
                     <td className="p-4 text-right">
-                      <form action={updateDonationStatus.bind(null, d.id, d.status === "VERIFIED" ? "PLEDGED" : "VERIFIED")}>
-                        <button
-                          type="submit"
-                          className="rounded-lg border border-[#A31D1D] px-2.5 py-1 text-[11px] font-semibold text-white hover:bg-[#A31D1D] transition-colors"
-                        >
-                          {d.status === "VERIFIED" ? "Mark Pending" : "Verify Receipt"}
-                        </button>
-                      </form>
+                      <div className="flex items-center justify-end gap-2">
+                        <form action={updateDonationStatus.bind(null, d.id, d.status === "VERIFIED" ? "PLEDGED" : "VERIFIED")}>
+                          <button
+                            type="submit"
+                            className="rounded-lg border border-[#A31D1D] px-2.5 py-1 text-[11px] font-semibold text-white hover:bg-[#A31D1D] transition-colors cursor-pointer"
+                          >
+                            {d.status === "VERIFIED" ? "Mark Pending" : "Verify Receipt"}
+                          </button>
+                        </form>
+                        <AdminDeleteButton
+                          id={d.id}
+                          title={`${d.name} (₹${d.amount})`}
+                          itemType="Donation Pledge"
+                          action={deleteDonationPledge}
+                        />
+                      </div>
                     </td>
                   </tr>
                 ))}

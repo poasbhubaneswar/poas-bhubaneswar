@@ -1,6 +1,7 @@
 "use client";
 
 import { useTransition, useState } from "react";
+import { useRouter } from "next/navigation";
 import { updateEvent, deleteEvent } from "@/actions/admin";
 import { Save, Check, Loader2, ExternalLink, Trash2, Image as ImageIcon } from "lucide-react";
 
@@ -20,8 +21,10 @@ interface EventEditorProps {
 }
 
 export function EventEditorForm({ event }: EventEditorProps) {
+  const router = useRouter();
   const [isPending, startTransition] = useTransition();
   const [isDeleting, setIsDeleting] = useState(false);
+  const [isDeleted, setIsDeleted] = useState(false);
   const [saved, setSaved] = useState(false);
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
@@ -32,6 +35,7 @@ export function EventEditorForm({ event }: EventEditorProps) {
     startTransition(async () => {
       await updateEvent(formData);
       setSaved(true);
+      router.refresh();
       setTimeout(() => setSaved(false), 3000);
     });
   };
@@ -44,10 +48,31 @@ export function EventEditorForm({ event }: EventEditorProps) {
 
     setIsDeleting(true);
     startTransition(async () => {
-      await deleteEvent(event.id);
-      setIsDeleting(false);
+      try {
+        const res = await deleteEvent(event.id);
+        if (res && res.error) {
+          alert(`Error: ${res.error}`);
+          setIsDeleting(false);
+          return;
+        }
+        setIsDeleted(true);
+        router.refresh();
+      } catch (err) {
+        console.error("Delete event failed:", err);
+        setIsDeleting(false);
+        alert("Failed to delete event. Please try again.");
+      }
     });
   };
+
+  if (isDeleted) {
+    return (
+      <div className="rounded-2xl border border-red-500/30 bg-red-500/10 p-5 text-xs text-red-400 flex items-center justify-between">
+        <span className="font-semibold">Event &quot;{event.title}&quot; has been completely deleted.</span>
+        <span className="text-[10px] text-[#9CA3AF]">Removed from database</span>
+      </div>
+    );
+  }
 
   return (
     <div className="rounded-2xl border border-[#2D2D35] bg-[#141416] p-6 shadow-sm">

@@ -220,13 +220,24 @@ export async function updateEvent(formData: FormData) {
   revalidatePath("/admin/events");
 }
 
-export async function deleteEvent(id: string) {
-  if (!id) return;
-  await prisma.event.delete({ where: { id } });
-  revalidatePath("/", "layout");
-  revalidatePath("/");
-  revalidatePath("/events");
-  revalidatePath("/admin/events");
+export async function deleteEvent(idOrFormData: string | FormData) {
+  try {
+    const id = typeof idOrFormData === "string" ? idOrFormData : (idOrFormData?.get?.("id") as string);
+    if (!id) return { success: false, error: "Missing event ID" };
+
+    // Clean up associated schedule items first to avoid any foreign key conflicts
+    await prisma.scheduleItem.deleteMany({ where: { eventId: id } });
+    await prisma.event.deleteMany({ where: { id } });
+
+    revalidatePath("/", "layout");
+    revalidatePath("/");
+    revalidatePath("/events");
+    revalidatePath("/admin/events");
+    return { success: true };
+  } catch (error) {
+    console.error("Error deleting event:", error);
+    return { success: false, error: "Failed to delete event" };
+  }
 }
 
 // 5. Schedule Items
@@ -255,13 +266,22 @@ export async function createScheduleItem(formData: FormData) {
   revalidatePath("/admin/events");
 }
 
-export async function deleteScheduleItem(id: string) {
-  if (!id) return;
-  await prisma.scheduleItem.delete({ where: { id } });
-  revalidatePath("/", "layout");
-  revalidatePath("/");
-  revalidatePath("/events");
-  revalidatePath("/admin/events");
+export async function deleteScheduleItem(idOrFormData: string | FormData) {
+  try {
+    const id = typeof idOrFormData === "string" ? idOrFormData : (idOrFormData?.get?.("id") as string);
+    if (!id) return { success: false, error: "Missing milestone ID" };
+
+    await prisma.scheduleItem.deleteMany({ where: { id } });
+
+    revalidatePath("/", "layout");
+    revalidatePath("/");
+    revalidatePath("/events");
+    revalidatePath("/admin/events");
+    return { success: true };
+  } catch (error) {
+    console.error("Error deleting schedule item:", error);
+    return { success: false, error: "Failed to delete schedule milestone" };
+  }
 }
 
 // 6. Meetings CRUD with Multi-Photo Instagram Carousel Support
@@ -357,13 +377,22 @@ export async function updateMeeting(formData: FormData) {
   revalidatePath("/");
 }
 
-export async function deleteMeeting(id: string) {
-  if (!id) return;
-  await prisma.meeting.delete({ where: { id } });
-  revalidatePath("/", "layout");
-  revalidatePath("/meetings");
-  revalidatePath("/admin/meetings");
-  revalidatePath("/");
+export async function deleteMeeting(idOrFormData: string | FormData) {
+  try {
+    const id = typeof idOrFormData === "string" ? idOrFormData : (idOrFormData?.get?.("id") as string);
+    if (!id) return { success: false, error: "Missing meeting ID" };
+
+    await prisma.meeting.deleteMany({ where: { id } });
+
+    revalidatePath("/", "layout");
+    revalidatePath("/meetings");
+    revalidatePath("/admin/meetings");
+    revalidatePath("/");
+    return { success: true };
+  } catch (error) {
+    console.error("Error deleting meeting:", error);
+    return { success: false, error: "Failed to delete meeting record" };
+  }
 }
 
 // 7. Office Bearers / Leadership CRUD
@@ -436,13 +465,24 @@ export async function updateOfficeBearer(formData: FormData) {
   revalidatePath("/");
 }
 
-export async function deleteOfficeBearer(id: string) {
-  if (!id) return;
-  await prisma.officeBearer.delete({ where: { id } });
-  revalidatePath("/", "layout");
-  revalidatePath("/leadership");
-  revalidatePath("/admin/leadership");
-  revalidatePath("/");
+export async function deleteOfficeBearer(idOrFormData: string | FormData) {
+  try {
+    const id = typeof idOrFormData === "string" ? idOrFormData : (idOrFormData?.get?.("id") as string);
+    if (!id) return { success: false, error: "Missing leader ID" };
+
+    await prisma.officeBearer.deleteMany({ where: { id } });
+
+    revalidatePath("/", "layout");
+    revalidatePath("/leadership");
+    revalidatePath("/governing-body");
+    revalidatePath("/about");
+    revalidatePath("/admin/leadership");
+    revalidatePath("/");
+    return { success: true };
+  } catch (error) {
+    console.error("Error deleting leader:", error);
+    return { success: false, error: "Failed to delete office bearer" };
+  }
 }
 
 // 8. Gallery Management
@@ -464,12 +504,22 @@ export async function createGalleryItem(formData: FormData) {
   revalidatePath("/");
 }
 
-export async function deleteGalleryItem(id: string) {
-  await prisma.galleryItem.delete({ where: { id } });
-  revalidatePath("/", "layout");
-  revalidatePath("/gallery");
-  revalidatePath("/admin/gallery");
-  revalidatePath("/");
+export async function deleteGalleryItem(idOrFormData: string | FormData) {
+  try {
+    const id = typeof idOrFormData === "string" ? idOrFormData : (idOrFormData?.get?.("id") as string);
+    if (!id) return { success: false, error: "Missing gallery item ID" };
+
+    await prisma.galleryItem.deleteMany({ where: { id } });
+
+    revalidatePath("/", "layout");
+    revalidatePath("/gallery");
+    revalidatePath("/admin/gallery");
+    revalidatePath("/");
+    return { success: true };
+  } catch (error) {
+    console.error("Error deleting gallery item:", error);
+    return { success: false, error: "Failed to delete gallery item" };
+  }
 }
 
 // 9. Articles & Announcements
@@ -518,12 +568,22 @@ export async function createArticle(formData: FormData) {
   revalidatePath("/");
 }
 
-export async function deleteArticle(id: string) {
-  await prisma.article.delete({ where: { id } });
-  revalidatePath("/", "layout");
-  revalidatePath("/news");
-  revalidatePath("/admin/articles");
-  revalidatePath("/");
+export async function deleteArticle(idOrFormData: string | FormData) {
+  try {
+    const id = typeof idOrFormData === "string" ? idOrFormData : (idOrFormData?.get?.("id") as string);
+    if (!id) return { success: false, error: "Missing article ID" };
+
+    await prisma.article.deleteMany({ where: { id } });
+
+    revalidatePath("/", "layout");
+    revalidatePath("/news");
+    revalidatePath("/admin/articles");
+    revalidatePath("/");
+    return { success: true };
+  } catch (error) {
+    console.error("Error deleting article:", error);
+    return { success: false, error: "Failed to delete article" };
+  }
 }
 
 // 10. Membership Inquiries Status Update
@@ -538,6 +598,21 @@ export async function updateInquiryStatus(id: string, status: string, paymentSta
   revalidatePath("/admin/membership");
 }
 
+export async function deleteMemberInquiry(idOrFormData: string | FormData) {
+  try {
+    const id = typeof idOrFormData === "string" ? idOrFormData : (idOrFormData?.get?.("id") as string);
+    if (!id) return { success: false, error: "Missing member inquiry ID" };
+
+    await prisma.memberInquiry.deleteMany({ where: { id } });
+    revalidatePath("/admin/membership");
+    revalidatePath("/admin");
+    return { success: true };
+  } catch (error) {
+    console.error("Error deleting member inquiry:", error);
+    return { success: false, error: "Failed to delete member inquiry" };
+  }
+}
+
 export async function updateDonationStatus(id: string, status: string) {
   await prisma.donationPledge.update({
     where: { id },
@@ -546,12 +621,42 @@ export async function updateDonationStatus(id: string, status: string) {
   revalidatePath("/admin/donations");
 }
 
+export async function deleteDonationPledge(idOrFormData: string | FormData) {
+  try {
+    const id = typeof idOrFormData === "string" ? idOrFormData : (idOrFormData?.get?.("id") as string);
+    if (!id) return { success: false, error: "Missing donation pledge ID" };
+
+    await prisma.donationPledge.deleteMany({ where: { id } });
+    revalidatePath("/admin/donations");
+    revalidatePath("/admin");
+    return { success: true };
+  } catch (error) {
+    console.error("Error deleting donation pledge:", error);
+    return { success: false, error: "Failed to delete donation pledge" };
+  }
+}
+
 export async function markMessageRead(id: string) {
   await prisma.contactMessage.update({
     where: { id },
     data: { isRead: true },
   });
   revalidatePath("/admin/messages");
+}
+
+export async function deleteContactMessage(idOrFormData: string | FormData) {
+  try {
+    const id = typeof idOrFormData === "string" ? idOrFormData : (idOrFormData?.get?.("id") as string);
+    if (!id) return { success: false, error: "Missing contact message ID" };
+
+    await prisma.contactMessage.deleteMany({ where: { id } });
+    revalidatePath("/admin/messages");
+    revalidatePath("/admin");
+    return { success: true };
+  } catch (error) {
+    console.error("Error deleting contact message:", error);
+    return { success: false, error: "Failed to delete contact message" };
+  }
 }
 
 // 11. Dignitaries Management
@@ -581,12 +686,21 @@ export async function createDignitary(formData: FormData) {
   revalidatePath("/");
 }
 
-export async function deleteDignitary(id: string) {
-  if (!id) return;
-  await prisma.dignitary.delete({ where: { id } });
-  revalidatePath("/", "layout");
-  revalidatePath("/dignitaries");
-  revalidatePath("/admin/dignitaries");
-  revalidatePath("/");
+export async function deleteDignitary(idOrFormData: string | FormData) {
+  try {
+    const id = typeof idOrFormData === "string" ? idOrFormData : (idOrFormData?.get?.("id") as string);
+    if (!id) return { success: false, error: "Missing dignitary ID" };
+
+    await prisma.dignitary.deleteMany({ where: { id } });
+
+    revalidatePath("/", "layout");
+    revalidatePath("/dignitaries");
+    revalidatePath("/admin/dignitaries");
+    revalidatePath("/");
+    return { success: true };
+  } catch (error) {
+    console.error("Error deleting dignitary:", error);
+    return { success: false, error: "Failed to delete dignitary" };
+  }
 }
 

@@ -1,7 +1,8 @@
 import { prisma } from "@/lib/prisma";
 import { getAdminSession } from "@/lib/session";
 import { redirect } from "next/navigation";
-import { markMessageRead } from "@/actions/admin";
+import { markMessageRead, deleteContactMessage } from "@/actions/admin";
+import { AdminDeleteButton } from "@/components/admin/AdminDeleteButton";
 import { formatDate } from "@/lib/utils";
 import { Mail, CheckCircle } from "lucide-react";
 
@@ -66,19 +67,28 @@ export default async function AdminMessagesPage() {
                 </p>
               </div>
 
-              {!msg.isRead && (
-                <div className="pt-2 flex justify-end">
-                  <form action={markMessageRead.bind(null, msg.id)}>
-                    <button
-                      type="submit"
-                      className="inline-flex items-center gap-1.5 rounded-lg border border-[#A31D1D] px-3 py-1 text-xs font-semibold text-white hover:bg-[#A31D1D] transition-colors"
-                    >
-                      <CheckCircle className="h-3.5 w-3.5" />
-                      <span>Mark as Read</span>
-                    </button>
-                  </form>
+              <div className="pt-2 border-t border-[#2D2D35] flex items-center justify-between text-xs">
+                <div>
+                  {!msg.isRead && (
+                    <form action={markMessageRead.bind(null, msg.id)}>
+                      <button
+                        type="submit"
+                        className="inline-flex items-center gap-1.5 rounded-lg border border-[#A31D1D] px-3 py-1 text-xs font-semibold text-white hover:bg-[#A31D1D] transition-colors cursor-pointer"
+                      >
+                        <CheckCircle className="h-3.5 w-3.5" />
+                        <span>Mark as Read</span>
+                      </button>
+                    </form>
+                  )}
                 </div>
-              )}
+
+                <AdminDeleteButton
+                  id={msg.id}
+                  title={`Message from ${msg.name} (${msg.subject || "General"})`}
+                  itemType="Contact Message"
+                  action={deleteContactMessage}
+                />
+              </div>
             </div>
           ))
         )}

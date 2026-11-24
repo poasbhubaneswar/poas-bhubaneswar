@@ -2,8 +2,9 @@ import { prisma } from "@/lib/prisma";
 import { getAdminSession } from "@/lib/session";
 import { redirect } from "next/navigation";
 import { createGalleryItem, deleteGalleryItem } from "@/actions/admin";
+import { AdminDeleteButton } from "@/components/admin/AdminDeleteButton";
 import Image from "next/image";
-import { Plus, Trash2, Image as ImageIcon } from "lucide-react";
+import { Plus, Image as ImageIcon } from "lucide-react";
 
 export default async function AdminGalleryPage() {
   const session = await getAdminSession();
@@ -120,15 +121,12 @@ export default async function AdminGalleryPage() {
                 </span>
 
                 <div className="mt-3 pt-2 border-t border-[#2D2D35] flex justify-end">
-                  <form action={deleteGalleryItem.bind(null, it.id)}>
-                    <button
-                      type="submit"
-                      className="text-red-400 hover:text-red-300 p-1"
-                      title="Delete Image"
-                    >
-                      <Trash2 className="h-3.5 w-3.5" />
-                    </button>
-                  </form>
+                  <AdminDeleteButton
+                    id={it.id}
+                    title={it.title}
+                    itemType="Gallery Image"
+                    action={deleteGalleryItem}
+                  />
                 </div>
               </div>
             </div>

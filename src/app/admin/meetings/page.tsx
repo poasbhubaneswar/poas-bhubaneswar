@@ -1,10 +1,9 @@
 import { prisma } from "@/lib/prisma";
 import { getAdminSession } from "@/lib/session";
 import { redirect } from "next/navigation";
-import Image from "next/image";
-import Link from "next/link";
-import { createMeeting, deleteMeeting } from "@/actions/admin";
-import { Calendar, Plus, Trash2, MapPin, Users, ExternalLink, Image as ImageIcon } from "lucide-react";
+import { createMeeting } from "@/actions/admin";
+import { MeetingCard } from "./MeetingCard";
+import { Plus } from "lucide-react";
 
 export default async function AdminMeetingsPage() {
   const session = await getAdminSession();
@@ -138,64 +137,21 @@ export default async function AdminMeetingsPage() {
         </h2>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {meetings.map((m, idx) => (
-            <div
+          {meetings.map((m) => (
+            <MeetingCard
               key={m.id}
-              className="rounded-2xl border border-[#2D2D35] bg-[#141416] p-5 flex flex-col justify-between hover:border-[#A31D1D] transition-colors"
-            >
-              <div>
-                <div className="flex items-center justify-between text-xs text-[#9CA3AF] mb-2">
-                  <div className="flex items-center gap-1.5">
-                    <Calendar className="h-3.5 w-3.5 text-[#EF4444]" />
-                    <span>{m.date ? new Date(m.date).toLocaleDateString() : "Dated"}</span>
-                  </div>
-                  <div className="flex items-center gap-1">
-                    <MapPin className="h-3.5 w-3.5 text-[#EF4444]" />
-                    <span>{m.location}</span>
-                  </div>
-                </div>
-
-                <h3 className="font-serif text-base font-bold text-white mb-2">
-                  {m.title}
-                </h3>
-
-                <p className="text-xs text-[#9CA3AF] line-clamp-3 leading-relaxed mb-3">
-                  {m.description}
-                </p>
-
-                {m.coverImage && (
-                  <div className="relative aspect-[16/9] w-full rounded-xl overflow-hidden bg-black mb-3">
-                    <Image
-                      src={m.coverImage}
-                      alt={m.title}
-                      fill
-                      className="object-cover"
-                    />
-                  </div>
-                )}
-              </div>
-
-              <div className="pt-3 border-t border-[#2D2D35] flex items-center justify-between text-xs">
-                <Link
-                  href={`/meetings/${m.slug}`}
-                  target="_blank"
-                  className="inline-flex items-center gap-1 text-[#EF4444] hover:underline font-semibold"
-                >
-                  <span>View Public Post</span>
-                  <ExternalLink className="h-3 w-3" />
-                </Link>
-
-                <form action={deleteMeeting.bind(null, m.id)}>
-                  <button
-                    type="submit"
-                    className="rounded-lg p-1.5 text-red-400 hover:bg-red-500/10 transition-colors"
-                    title="Delete Meeting"
-                  >
-                    <Trash2 className="h-4 w-4" />
-                  </button>
-                </form>
-              </div>
-            </div>
+              meeting={{
+                id: m.id,
+                title: m.title,
+                slug: m.slug,
+                date: m.date ? m.date.toISOString() : null,
+                location: m.location,
+                participants: m.participants,
+                description: m.description,
+                coverImage: m.coverImage,
+                images: m.images,
+              }}
+            />
           ))}
         </div>
       </div>

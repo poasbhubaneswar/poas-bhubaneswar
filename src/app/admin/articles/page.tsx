@@ -2,7 +2,8 @@ import { prisma } from "@/lib/prisma";
 import { getAdminSession } from "@/lib/session";
 import { redirect } from "next/navigation";
 import { createArticle, deleteArticle } from "@/actions/admin";
-import { Plus, Trash2, FileText, Image as ImageIcon } from "lucide-react";
+import { AdminDeleteButton } from "@/components/admin/AdminDeleteButton";
+import { Plus, FileText, Image as ImageIcon } from "lucide-react";
 
 export default async function AdminArticlesPage() {
   const session = await getAdminSession();
@@ -124,15 +125,12 @@ export default async function AdminArticlesPage() {
               </div>
 
               <div className="flex items-center gap-3">
-                <form action={deleteArticle.bind(null, art.id)}>
-                  <button
-                    type="submit"
-                    className="p-1.5 rounded-lg text-red-400 hover:bg-red-500/10 transition-colors"
-                    title="Delete Article"
-                  >
-                    <Trash2 className="h-4 w-4" />
-                  </button>
-                </form>
+                <AdminDeleteButton
+                  id={art.id}
+                  title={art.title}
+                  itemType="Article"
+                  action={deleteArticle}
+                />
               </div>
             </div>
           ))}

@@ -2,8 +2,9 @@ import { prisma } from "@/lib/prisma";
 import { getAdminSession } from "@/lib/session";
 import { redirect } from "next/navigation";
 import { createDignitary, deleteDignitary } from "@/actions/admin";
+import { AdminDeleteButton } from "@/components/admin/AdminDeleteButton";
 import Image from "next/image";
-import { Plus, Trash2, Users } from "lucide-react";
+import { Plus, Users } from "lucide-react";
 
 export default async function AdminDignitariesPage() {
   const session = await getAdminSession();
@@ -99,25 +100,22 @@ export default async function AdminDignitariesPage() {
             className="rounded-2xl border border-[#49343A] bg-[#21171B] p-4 flex gap-4 items-center justify-between"
           >
             <div className="flex items-center gap-3">
-              <div className="relative h-14 w-14 rounded-xl overflow-hidden bg-[#160F12] flex-none">
+              <div className="relative h-14 w-14 rounded-xl overflow-hidden bg-[#0B0B0C] border border-[#2D2D35] flex-none">
                 {dig.imageUrl && <Image src={dig.imageUrl} alt={dig.name} fill className="object-cover" />}
               </div>
               <div>
-                <h4 className="font-serif text-sm font-bold text-[#F4EBDD]">{dig.name}</h4>
-                <p className="text-[11px] text-[#C49A52]">{dig.designation}</p>
-                <p className="text-[10px] text-[#968579]">{dig.constituency}</p>
+                <h4 className="font-serif text-sm font-bold text-white">{dig.name}</h4>
+                <p className="text-[11px] text-[#EF4444] font-medium">{dig.designation}</p>
+                <p className="text-[10px] text-[#9CA3AF]">{dig.constituency}</p>
               </div>
             </div>
 
-            <form action={deleteDignitary.bind(null, dig.id)}>
-              <button
-                type="submit"
-                className="text-xs text-[#D4776C] hover:text-red-400 p-2"
-                title="Delete Dignitary"
-              >
-                <Trash2 className="h-4 w-4" />
-              </button>
-            </form>
+            <AdminDeleteButton
+              id={dig.id}
+              title={dig.name}
+              itemType="Dignitary"
+              action={deleteDignitary}
+            />
           </div>
         ))}
       </div>

@@ -1,7 +1,8 @@
 import { prisma } from "@/lib/prisma";
 import { getAdminSession } from "@/lib/session";
 import { redirect } from "next/navigation";
-import { updateInquiryStatus } from "@/actions/admin";
+import { updateInquiryStatus, deleteMemberInquiry } from "@/actions/admin";
+import { AdminDeleteButton } from "@/components/admin/AdminDeleteButton";
 import { formatDate } from "@/lib/utils";
 import { Layers, CheckCircle2, Clock, Phone, MapPin } from "lucide-react";
 
@@ -102,14 +103,22 @@ export default async function AdminMembershipPage() {
                     </td>
                     <td className="p-4 text-[#9CA3AF]">{formatDate(m.createdAt)}</td>
                     <td className="p-4 text-right">
-                      <form action={updateInquiryStatus.bind(null, m.id, m.status === "APPROVED" ? "PENDING" : "APPROVED", "PAID")}>
-                        <button
-                          type="submit"
-                          className="rounded-lg border border-[#A31D1D] px-3 py-1 text-[11px] font-semibold text-white hover:bg-[#A31D1D] transition-colors"
-                        >
-                          {m.status === "APPROVED" ? "Mark Pending" : "Approve Pass"}
-                        </button>
-                      </form>
+                      <div className="flex items-center justify-end gap-2">
+                        <form action={updateInquiryStatus.bind(null, m.id, m.status === "APPROVED" ? "PENDING" : "APPROVED", "PAID")}>
+                          <button
+                            type="submit"
+                            className="rounded-lg border border-[#A31D1D] px-3 py-1 text-[11px] font-semibold text-white hover:bg-[#A31D1D] transition-colors cursor-pointer"
+                          >
+                            {m.status === "APPROVED" ? "Mark Pending" : "Approve Pass"}
+                          </button>
+                        </form>
+                        <AdminDeleteButton
+                          id={m.id}
+                          title={`${m.name} (${m.membershipTier})`}
+                          itemType="Membership Enrolment"
+                          action={deleteMemberInquiry}
+                        />
+                      </div>
                     </td>
                   </tr>
                 ))}

@@ -3,7 +3,8 @@ import { getAdminSession } from "@/lib/session";
 import { redirect } from "next/navigation";
 import Image from "next/image";
 import { createOfficeBearer, deleteOfficeBearer } from "@/actions/admin";
-import { Users, Plus, Trash2, Phone, Shield, AlertCircle } from "lucide-react";
+import { AdminDeleteButton } from "@/components/admin/AdminDeleteButton";
+import { Users, Plus, Phone, Shield, AlertCircle } from "lucide-react";
 
 export default async function AdminLeadershipPage() {
   const session = await getAdminSession();
@@ -203,15 +204,12 @@ export default async function AdminLeadershipPage() {
                     )}
                   </td>
                   <td className="p-3.5 text-right">
-                    <form action={deleteOfficeBearer.bind(null, b.id)}>
-                      <button
-                        type="submit"
-                        className="rounded-lg p-1.5 text-red-400 hover:bg-red-500/10 hover:text-red-300 transition-colors"
-                        title="Delete Member"
-                      >
-                        <Trash2 className="h-4 w-4" />
-                      </button>
-                    </form>
+                    <AdminDeleteButton
+                      id={b.id}
+                      title={b.name}
+                      itemType="Office Bearer"
+                      action={deleteOfficeBearer}
+                    />
                   </td>
                 </tr>
               ))}
