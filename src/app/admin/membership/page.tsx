@@ -6,6 +6,9 @@ import { AdminDeleteButton } from "@/components/admin/AdminDeleteButton";
 import { formatDate } from "@/lib/utils";
 import { Layers, CheckCircle2, Clock, Phone, MapPin } from "lucide-react";
 
+export const dynamic = "force-dynamic";
+export const revalidate = 0;
+
 export default async function AdminMembershipPage() {
   const session = await getAdminSession();
   if (!session) redirect("/admin/login");

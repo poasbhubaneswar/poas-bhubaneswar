@@ -37,6 +37,14 @@ export default async function AdminLayout({
 }) {
   const session = await getAdminSession();
 
+  if (!session) {
+    return (
+      <div className="min-h-screen bg-[#0B0B0C] text-white flex items-center justify-center p-4">
+        {children}
+      </div>
+    );
+  }
+
   return (
     <div className="min-h-screen bg-[#0B0B0C] text-white flex flex-col md:flex-row">
       

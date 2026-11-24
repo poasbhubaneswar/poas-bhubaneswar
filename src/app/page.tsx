@@ -20,9 +20,8 @@ export default async function HomePage() {
       include: { schedules: { orderBy: { orderIndex: "asc" } } },
     }),
     prisma.officeBearer.findMany({
-      where: { category: "GOVERNING_BODY", isPublished: true },
+      where: { isPublished: true },
       orderBy: { displayOrder: "asc" },
-      take: 4,
       select: {
         id: true,
         name: true,
@@ -356,11 +355,11 @@ export default async function HomePage() {
 
 
       {/* =========================================================================
-          4. LEADERSHIP & GOVERNING BODY (MATCHED 19 MEMBERS SPOTLIGHT)
+          4. LEADERSHIP & GOVERNING BODY (ALL MEMBERS SHOWN IN SMALL SQUARES)
          ========================================================================= */}
       <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <ScrollReveal>
-          <div className="text-center max-w-3xl mx-auto mb-12">
+          <div className="text-center max-w-3xl mx-auto mb-10">
             <span className="text-xs font-bold uppercase tracking-widest text-[#EF4444]">
               Constitutional Governance
             </span>
@@ -368,57 +367,83 @@ export default async function HomePage() {
               Governing Body &amp; Leadership Structure
             </h2>
             <p className="text-sm text-[#9CA3AF] mt-2">
-              Elected office bearers and executive members guiding Paschim Odisha Agrani Sangathana.
+              All 24 office bearers, advisors, and executive council members guiding Paschim Odisha Agrani Sangathana.
             </p>
           </div>
         </ScrollReveal>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {officeBearers.map((ob, idx) => (
-            <ScrollReveal key={ob.id} delay={idx * 80}>
-              <SpotlightCard className="group relative flex flex-col rounded-3xl glass-card-interactive h-full">
-                <ShimmerBorder />
-                <div className="relative aspect-[3/4] w-full bg-black overflow-hidden">
-                  {ob.imageUrl ? (
-                    <Image
-                      src={ob.imageUrl}
-                      alt={ob.name}
-                      fill
-                      className="object-cover object-top transition-transform duration-700 group-hover:scale-105"
-                    />
-                  ) : (
-                    <div className="flex h-full flex-col items-center justify-center p-4 text-center bg-[#17171B]">
-                      <div className="h-16 w-16 rounded-full bg-[#241113] border border-[#A31D1D]/40 flex items-center justify-center text-[#EF4444] mb-2">
-                        <Users className="h-7 w-7" />
-                      </div>
-                      <span className="text-[10px] uppercase font-bold text-[#9CA3AF] tracking-wider">
-                        Official Office Bearer
-                      </span>
-                    </div>
-                  )}
-                  <div className="absolute top-3 right-3 rounded-md bg-[#A31D1D]/90 px-2 py-0.5 text-[10px] font-bold text-white uppercase tracking-wider backdrop-blur-xs">
-                    {ob.category.replace("_", " ")}
-                  </div>
-                </div>
+        {/* Small Squares Grid: 6 columns on desktop, 4 on tablet, 2 on mobile */}
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3.5 sm:gap-4">
+          {officeBearers.map((ob, idx) => {
+            const shortCategory =
+              ob.category === "GOVERNING_BODY"
+                ? "Gov. Body"
+                : ob.category === "ADVISORY_COUNCIL"
+                ? "Advisor"
+                : "Executive";
 
-                <div className="p-5 flex-1 flex flex-col justify-between">
+            const badgeColor =
+              ob.category === "GOVERNING_BODY"
+                ? "bg-[#A31D1D]/90 text-white border-[#A31D1D]"
+                : ob.category === "ADVISORY_COUNCIL"
+                ? "bg-amber-600/90 text-white border-amber-500/50"
+                : "bg-white/15 text-[#D1D5DB] border-white/20";
+
+            return (
+              <ScrollReveal key={ob.id} delay={Math.min(idx * 30, 300)}>
+                <div className="group relative flex flex-col justify-between rounded-2xl glass-card-interactive p-2.5 sm:p-3 border border-white/10 hover:border-[#A31D1D] transition-all duration-300 h-full shadow-sm hover:shadow-[0_0_20px_rgba(163,29,29,0.35)]">
                   <div>
-                    <h3 className="font-serif text-base font-bold text-white group-hover:text-[#EF4444] transition-colors leading-snug">
-                      {ob.name}
-                    </h3>
-                    {ob.nameOdia && (
-                      <span className="text-xs font-odia font-medium text-[#EF4444] block mt-0.5">
-                        {ob.nameOdia}
-                      </span>
-                    )}
-                    <p className="text-xs font-semibold text-white/90 mt-1">
-                      {ob.designation}
-                    </p>
+                    {/* Small Square Photo Box */}
+                    <div className="relative aspect-square w-full rounded-xl overflow-hidden bg-black/90 border border-white/10 group-hover:border-[#A31D1D]/70 transition-all">
+                      {ob.imageUrl ? (
+                        <Image
+                          src={ob.imageUrl}
+                          alt={ob.name}
+                          fill
+                          sizes="(max-width: 640px) 45vw, (max-width: 1024px) 25vw, 16vw"
+                          className="object-cover object-top transition-transform duration-500 group-hover:scale-105"
+                        />
+                      ) : (
+                        <div className="flex h-full flex-col items-center justify-center p-2 text-center bg-[#17171B]">
+                          <div className="h-10 w-10 rounded-full bg-[#241113] border border-[#A31D1D]/40 flex items-center justify-center text-[#EF4444] mb-1">
+                            <Users className="h-5 w-5" />
+                          </div>
+                          <span className="text-[9px] uppercase font-bold text-[#9CA3AF] tracking-wider">
+                            POAS
+                          </span>
+                        </div>
+                      )}
+                      
+                      {/* Subtle Bottom Gradient */}
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent pointer-events-none" />
+
+                      {/* Small Category Pill */}
+                      <div
+                        className={`absolute top-1.5 right-1.5 rounded px-1.5 py-0.5 text-[9px] font-bold uppercase tracking-wider border backdrop-blur-xs shadow-xs ${badgeColor}`}
+                      >
+                        {shortCategory}
+                      </div>
+                    </div>
+
+                    {/* Member Details Directly Under Photo */}
+                    <div className="mt-2.5 space-y-0.5">
+                      <h3 className="font-serif text-xs sm:text-[13px] font-bold text-white group-hover:text-[#EF4444] transition-colors leading-snug line-clamp-1">
+                        {ob.name}
+                      </h3>
+                      {ob.nameOdia && (
+                        <span className="text-[10px] sm:text-[11px] font-odia text-[#EF4444] font-medium block truncate leading-tight">
+                          {ob.nameOdia}
+                        </span>
+                      )}
+                      <p className="text-[10px] sm:text-[11px] text-[#9CA3AF] leading-snug line-clamp-2 pt-0.5">
+                        {ob.designation}
+                      </p>
+                    </div>
                   </div>
                 </div>
-              </SpotlightCard>
-            </ScrollReveal>
-          ))}
+              </ScrollReveal>
+            );
+          })}
         </div>
 
         <div className="text-center mt-10">
@@ -426,7 +451,7 @@ export default async function HomePage() {
             href="/leadership"
             className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/[0.05] px-6 py-2.5 text-xs font-bold text-white hover:bg-white/[0.1] hover:border-[#A31D1D] transition-all"
           >
-            <span>View All 24 Leadership, Advisory &amp; Governing Body Members</span>
+            <span>View Complete Portfolio &amp; Constitutional Roster</span>
             <ArrowRight className="h-3.5 w-3.5 text-[#EF4444]" />
           </Link>
         </div>

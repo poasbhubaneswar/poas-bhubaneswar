@@ -18,9 +18,10 @@ interface EventEditorProps {
     images?: string | null;
     registrationOpen: boolean;
   };
+  onDeleted?: () => void;
 }
 
-export function EventEditorForm({ event }: EventEditorProps) {
+export function EventEditorForm({ event, onDeleted }: EventEditorProps) {
   const router = useRouter();
   const [isPending, startTransition] = useTransition();
   const [isDeleting, setIsDeleting] = useState(false);
@@ -56,6 +57,7 @@ export function EventEditorForm({ event }: EventEditorProps) {
           return;
         }
         setIsDeleted(true);
+        onDeleted?.();
         router.refresh();
       } catch (err) {
         console.error("Delete event failed:", err);

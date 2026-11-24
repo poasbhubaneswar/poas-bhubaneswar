@@ -11,7 +11,7 @@ const NAV_ITEMS = [
   { href: "/about", label: "About POAS" },
   { href: "/leadership", label: "Leadership" },
   { href: "/meetings", label: "Meetings" },
-  { href: "/maasamalei", label: "Maa Samalei" },
+  { href: "/maasamalei", label: "Maa Samalei Project" },
   { href: "/events", label: "Events" },
   { href: "/gallery", label: "Gallery" },
   { href: "/news", label: "News" },

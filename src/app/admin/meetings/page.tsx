@@ -5,6 +5,9 @@ import { createMeeting } from "@/actions/admin";
 import { MeetingCard } from "./MeetingCard";
 import { Plus } from "lucide-react";
 
+export const dynamic = "force-dynamic";
+export const revalidate = 0;
+
 export default async function AdminMeetingsPage() {
   const session = await getAdminSession();
   if (!session) redirect("/admin/login");

@@ -6,6 +6,9 @@ import { createOfficeBearer, deleteOfficeBearer } from "@/actions/admin";
 import { AdminDeleteButton } from "@/components/admin/AdminDeleteButton";
 import { Users, Plus, Phone, Shield, AlertCircle } from "lucide-react";
 
+export const dynamic = "force-dynamic";
+export const revalidate = 0;
+
 export default async function AdminLeadershipPage() {
   const session = await getAdminSession();
   if (!session) redirect("/admin/login");

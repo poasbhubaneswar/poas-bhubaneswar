@@ -6,6 +6,9 @@ import { AdminDeleteButton } from "@/components/admin/AdminDeleteButton";
 import Image from "next/image";
 import { Plus, Image as ImageIcon } from "lucide-react";
 
+export const dynamic = "force-dynamic";
+export const revalidate = 0;
+
 export default async function AdminGalleryPage() {
   const session = await getAdminSession();
   if (!session) redirect("/admin/login");

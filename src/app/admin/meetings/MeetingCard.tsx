@@ -25,6 +25,11 @@ export function MeetingCard({ meeting }: MeetingCardProps) {
   const [isEditing, setIsEditing] = useState(false);
   const [isSaving, setIsSaving] = useState(false);
   const [savedSuccess, setSavedSuccess] = useState(false);
+  const [isDeleted, setIsDeleted] = useState(false);
+
+  if (isDeleted) {
+    return null;
+  }
 
   const formattedDate = meeting.date
     ? new Date(meeting.date).toLocaleDateString("en-IN", {
@@ -238,6 +243,7 @@ export function MeetingCard({ meeting }: MeetingCardProps) {
                 title={meeting.title}
                 itemType="Meeting Record"
                 action={deleteMeeting}
+                onDeleted={() => setIsDeleted(true)}
               />
             </div>
           </div>

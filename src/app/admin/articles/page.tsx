@@ -5,6 +5,9 @@ import { createArticle, deleteArticle } from "@/actions/admin";
 import { AdminDeleteButton } from "@/components/admin/AdminDeleteButton";
 import { Plus, FileText, Image as ImageIcon } from "lucide-react";
 
+export const dynamic = "force-dynamic";
+export const revalidate = 0;
+
 export default async function AdminArticlesPage() {
   const session = await getAdminSession();
   if (!session) redirect("/admin/login");

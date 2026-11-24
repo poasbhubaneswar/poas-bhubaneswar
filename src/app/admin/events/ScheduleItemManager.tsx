@@ -1,6 +1,6 @@
 "use client";
 
-import { useTransition, useState } from "react";
+import { useTransition, useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { createScheduleItem, deleteScheduleItem } from "@/actions/admin";
 import { Plus, Trash2, Clock, Check, Loader2 } from "lucide-react";
@@ -21,25 +21,39 @@ interface ScheduleManagerProps {
 export function ScheduleItemManager({ eventId, items }: ScheduleManagerProps) {
   const router = useRouter();
   const [isPending, startTransition] = useTransition();
+  const [scheduleItems, setScheduleItems] = useState<ScheduleItem[]>(items);
   const [deletingId, setDeletingId] = useState<string | null>(null);
   const [showAddForm, setShowAddForm] = useState(false);
   const [savedMessage, setSavedMessage] = useState<string | null>(null);
+
+  useEffect(() => {
+    setScheduleItems(items);
+  }, [items]);
 
   const handleDelete = (id: string, title: string) => {
     if (!confirm(`Are you sure you want to delete "${title}" from the timeline?`)) {
       return;
     }
 
+    const prevItems = scheduleItems;
+    setScheduleItems((prev) => prev.filter((m) => m.id !== id));
     setDeletingId(id);
     startTransition(async () => {
       try {
-        await deleteScheduleItem(id);
+        const res = await deleteScheduleItem(id);
+        if (res && res.error) {
+          alert(`Error: ${res.error}`);
+          setScheduleItems(prevItems);
+          setDeletingId(null);
+          return;
+        }
         setDeletingId(null);
         setSavedMessage("Milestone removed from timeline.");
         router.refresh();
         setTimeout(() => setSavedMessage(null), 3000);
       } catch (err) {
         console.error("Delete schedule item failed:", err);
+        setScheduleItems(prevItems);
         setDeletingId(null);
         alert("Failed to delete milestone. Please try again.");
       }
@@ -73,7 +87,7 @@ export function ScheduleItemManager({ eventId, items }: ScheduleManagerProps) {
         <div>
           <h3 className="font-serif text-lg font-bold text-white flex items-center gap-2">
             <Clock className="h-4 w-4 text-[#EF4444]" />
-            <span>Timeline Programme Schedule ({items.length})</span>
+            <span>Timeline Programme Schedule ({scheduleItems.length})</span>
           </h3>
           <p className="text-xs text-[#9CA3AF] mt-0.5">
             Add or remove ceremony milestones shown on the public schedule page
@@ -150,7 +164,7 @@ export function ScheduleItemManager({ eventId, items }: ScheduleManagerProps) {
               <input
                 type="number"
                 name="orderIndex"
-                defaultValue={items.length + 1}
+                defaultValue={scheduleItems.length + 1}
                 className="w-full rounded-xl border border-[#2D2D35] bg-[#141416] p-2.5 text-xs text-white focus:border-[#A31D1D] focus:outline-none"
               />
             </div>
@@ -176,13 +190,13 @@ export function ScheduleItemManager({ eventId, items }: ScheduleManagerProps) {
       )}
 
       {/* Schedule Items List with Delete Actions */}
-      {items.length === 0 ? (
+      {scheduleItems.length === 0 ? (
         <p className="text-xs text-[#9CA3AF] italic py-4 text-center">
           No schedule milestones currently configured. Click &quot;Add Milestone&quot; to create one.
         </p>
       ) : (
         <div className="space-y-3">
-          {items.map((item) => (
+          {scheduleItems.map((item) => (
             <div
               key={item.id}
               className="flex items-start justify-between gap-4 rounded-xl border border-[#2D2D35] bg-[#0B0B0C] p-4 transition-colors hover:border-[#A31D1D]/50"

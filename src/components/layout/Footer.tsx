@@ -141,11 +141,18 @@ export async function Footer() {
             </h4>
             <div className="space-y-2.5 text-xs text-[#9CA3AF]">
               <a
-                href={`tel:${phoneClean}`}
+                href="tel:+919439011880"
                 className="flex items-center gap-2 hover:text-white transition-colors"
               >
                 <Phone className="h-4 w-4 text-[#EF4444] flex-none" />
-                <span>{phone}</span>
+                <span>+91 94390 11880 (President)</span>
+              </a>
+              <a
+                href="tel:+918917435721"
+                className="flex items-center gap-2 hover:text-white transition-colors"
+              >
+                <Phone className="h-4 w-4 text-[#EF4444] flex-none" />
+                <span>+91 891 743 5721 (Sec. General)</span>
               </a>
               <a
                 href={`mailto:${email}`}

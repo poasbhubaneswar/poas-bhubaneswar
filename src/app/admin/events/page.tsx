@@ -1,12 +1,12 @@
 import { prisma } from "@/lib/prisma";
 import { getAdminSession } from "@/lib/session";
 import { redirect } from "next/navigation";
-import { EventEditorForm } from "./EventEditorForm";
-import { ScheduleItemManager } from "./ScheduleItemManager";
+import { AdminEventCard } from "./AdminEventCard";
 import { CreateEventForm } from "./CreateEventForm";
 import { Calendar, AlertCircle } from "lucide-react";
 
 export const dynamic = "force-dynamic";
+export const revalidate = 0;
 
 export default async function AdminEventsPage() {
   const session = await getAdminSession();
@@ -62,28 +62,12 @@ export default async function AdminEventsPage() {
             };
 
             return (
-              <div
+              <AdminEventCard
                 key={ev.id}
-                className="rounded-3xl border border-[#A31D1D]/30 bg-[#141416] p-6 sm:p-8 space-y-6 shadow-xl"
-              >
-                <div className="flex items-center justify-between">
-                  <div className="flex items-center gap-2">
-                    <span className="h-2 w-2 rounded-full bg-[#EF4444]" />
-                    <span className="text-xs font-bold uppercase tracking-wider text-[#EF4444]">
-                      Event ID: {ev.slug}
-                    </span>
-                  </div>
-                  <span className="text-xs text-[#9CA3AF]">
-                    {ev.schedules.length} Timeline Milestones
-                  </span>
-                </div>
-
-                {/* Event Details Form with Delete Event Option & Multi-Photo Support */}
-                <EventEditorForm event={serializedEvent} />
-
-                {/* Timeline Milestones with Delete Milestone Option */}
-                <ScheduleItemManager eventId={ev.id} items={ev.schedules} />
-              </div>
+                event={serializedEvent}
+                slug={ev.slug}
+                schedules={ev.schedules}
+              />
             );
           })}
         </div>

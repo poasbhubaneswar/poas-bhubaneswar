@@ -15,6 +15,7 @@ import {
   ArrowRight,
 } from "lucide-react";
 
+export const dynamic = "force-dynamic";
 export const revalidate = 0; // Dynamic admin metrics
 
 export default async function AdminDashboardPage() {

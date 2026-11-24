@@ -55,25 +55,54 @@ export default async function ContactPage() {
 
               <div className="space-y-6 text-sm">
                 <div>
-                  <span className="text-xs font-semibold uppercase tracking-wider text-[#EF4444] block mb-1">
-                    Primary Secretariat Helpline
+                  <span className="text-xs font-semibold uppercase tracking-wider text-[#EF4444] block mb-3">
+                    Key Office Bearers &amp; Helplines
                   </span>
-                  <a
-                    href={`tel:${phoneClean}`}
-                    className="flex items-center gap-2 text-white font-medium hover:text-[#EF4444] transition-colors"
-                  >
-                    <Phone className="h-4 w-4 text-[#EF4444]" />
-                    <span>{phone}</span>
-                  </a>
-                </div>
+                  <div className="space-y-3">
+                    <div className="rounded-xl bg-[#0B0B0C] border border-[#2D2D35] p-3 hover:border-[#A31D1D]/60 transition-colors">
+                      <div className="flex items-center justify-between">
+                        <span className="font-serif text-xs font-bold text-white">Sri Sanjeev Mishra</span>
+                        <span className="text-[10px] font-semibold text-[#EF4444] bg-[#241113] px-2 py-0.5 rounded-full border border-[#A31D1D]/30">President</span>
+                      </div>
+                      <a href="tel:+919439011880" className="mt-1.5 flex items-center gap-1.5 text-xs text-[#D1D5DB] hover:text-[#EF4444] transition-colors">
+                        <Phone className="h-3.5 w-3.5 text-[#EF4444]" />
+                        <span>+91 94390 11880</span>
+                      </a>
+                    </div>
 
-                <div>
-                  <span className="text-xs font-semibold uppercase tracking-wider text-[#EF4444] block mb-1">
-                    Additional Office Bearer Helplines
-                  </span>
-                  <p className="text-xs text-[#D1D5DB] leading-relaxed">
-                    {additionalPhones}
-                  </p>
+                    <div className="rounded-xl bg-[#0B0B0C] border border-[#2D2D35] p-3 hover:border-[#A31D1D]/60 transition-colors">
+                      <div className="flex items-center justify-between">
+                        <span className="font-serif text-xs font-bold text-white">Sri Dukhishyam Bhanja</span>
+                        <span className="text-[10px] font-semibold text-[#EF4444] bg-[#241113] px-2 py-0.5 rounded-full border border-[#A31D1D]/30">Secretary General</span>
+                      </div>
+                      <a href="tel:+918917435721" className="mt-1.5 flex items-center gap-1.5 text-xs text-[#D1D5DB] hover:text-[#EF4444] transition-colors">
+                        <Phone className="h-3.5 w-3.5 text-[#EF4444]" />
+                        <span>+91 891 743 5721</span>
+                      </a>
+                    </div>
+
+                    <div className="rounded-xl bg-[#0B0B0C] border border-[#2D2D35] p-3 hover:border-[#A31D1D]/60 transition-colors">
+                      <div className="flex items-center justify-between">
+                        <span className="font-serif text-xs font-bold text-white">Sri Anil Kumar Mahapatra</span>
+                        <span className="text-[10px] font-semibold text-[#EF4444] bg-[#241113] px-2 py-0.5 rounded-full border border-[#A31D1D]/30">Secretary</span>
+                      </div>
+                      <a href="tel:+919004830541" className="mt-1.5 flex items-center gap-1.5 text-xs text-[#D1D5DB] hover:text-[#EF4444] transition-colors">
+                        <Phone className="h-3.5 w-3.5 text-[#EF4444]" />
+                        <span>+91 90048 30541</span>
+                      </a>
+                    </div>
+
+                    <div className="rounded-xl bg-[#0B0B0C] border border-[#2D2D35] p-3 hover:border-[#A31D1D]/60 transition-colors">
+                      <div className="flex items-center justify-between">
+                        <span className="font-serif text-xs font-bold text-white">Sri Lokesh Jagat</span>
+                        <span className="text-[10px] font-semibold text-[#EF4444] bg-[#241113] px-2 py-0.5 rounded-full border border-[#A31D1D]/30">Treasurer</span>
+                      </div>
+                      <a href="tel:+919439425322" className="mt-1.5 flex items-center gap-1.5 text-xs text-[#D1D5DB] hover:text-[#EF4444] transition-colors">
+                        <Phone className="h-3.5 w-3.5 text-[#EF4444]" />
+                        <span>+91 94394 25322</span>
+                      </a>
+                    </div>
+                  </div>
                 </div>
 
                 <div>

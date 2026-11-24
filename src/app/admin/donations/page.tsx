@@ -5,6 +5,9 @@ import { updateDonationStatus, deleteDonationPledge } from "@/actions/admin";
 import { AdminDeleteButton } from "@/components/admin/AdminDeleteButton";
 import { formatDate } from "@/lib/utils";
 
+export const dynamic = "force-dynamic";
+export const revalidate = 0;
+
 export default async function AdminDonationsPage() {
   const session = await getAdminSession();
   if (!session) redirect("/admin/login");
