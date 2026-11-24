@@ -108,12 +108,7 @@ export async function Footer() {
             <ul className="space-y-2 text-sm text-[#9CA3AF]">
               <li>
                 <Link href="/membership" className="text-white font-medium hover:text-[#EF4444] transition-colors">
-                  Lifetime Membership · ₹1,000
-                </Link>
-              </li>
-              <li>
-                <Link href="/membership" className="text-white font-medium hover:text-[#EF4444] transition-colors">
-                  Yearly Membership · ₹100
+                  Membership (Coming Soon)
                 </Link>
               </li>
               <li>

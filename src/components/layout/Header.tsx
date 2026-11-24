@@ -35,9 +35,8 @@ export function Header() {
   return (
     <header className="fixed top-3 sm:top-4 inset-x-0 z-40 px-3 sm:px-6 pointer-events-none">
       <div
-        className={`mx-auto max-w-[1440px] w-full rounded-full transition-all duration-300 pointer-events-auto px-4 py-2 sm:px-5 sm:py-2 flex items-center justify-between gap-2 lg:gap-4 ${
-          isScrolled ? "apple-glass-nav-scrolled" : "apple-glass-nav"
-        }`}
+        className={`mx-auto max-w-[1440px] w-full rounded-full transition-all duration-300 pointer-events-auto px-4 py-2 sm:px-5 sm:py-2 flex items-center justify-between gap-2 lg:gap-4 ${isScrolled ? "apple-glass-nav-scrolled" : "apple-glass-nav"
+          }`}
       >
         {/* POAS Brand Logo & Bilingual Title */}
         <Link href="/" className="flex items-center gap-2.5 sm:gap-3 group flex-shrink-0">
@@ -72,11 +71,10 @@ export function Header() {
               <Link
                 key={item.href}
                 href={item.href}
-                className={`relative px-2.5 xl:px-3 py-1.5 text-xs xl:text-[13px] font-medium rounded-full transition-all duration-200 whitespace-nowrap flex-shrink-0 ${
-                  isActive
-                    ? "text-white font-semibold bg-[#A31D1D] shadow-[0_2px_12px_rgba(163,29,29,0.4)]"
-                    : "text-[#D1D5DB] hover:text-white hover:bg-white/[0.08]"
-                }`}
+                className={`relative px-2.5 xl:px-3 py-1.5 text-xs xl:text-[13px] font-medium rounded-full transition-all duration-200 whitespace-nowrap flex-shrink-0 ${isActive
+                  ? "text-white font-semibold bg-[#A31D1D] shadow-[0_2px_12px_rgba(163,29,29,0.4)]"
+                  : "text-[#D1D5DB] hover:text-white hover:bg-white/[0.08]"
+                  }`}
               >
                 {item.label}
               </Link>
@@ -126,11 +124,10 @@ export function Header() {
                   key={item.href}
                   href={item.href}
                   onClick={() => setMobileMenuOpen(false)}
-                  className={`px-4 py-2.5 rounded-2xl text-sm font-medium transition-all ${
-                    isActive
-                      ? "bg-[#A31D1D] text-white font-semibold"
-                      : "text-[#D1D5DB] hover:text-white hover:bg-white/[0.06]"
-                  }`}
+                  className={`px-4 py-2.5 rounded-2xl text-sm font-medium transition-all ${isActive
+                    ? "bg-[#A31D1D] text-white font-semibold"
+                    : "text-[#D1D5DB] hover:text-white hover:bg-white/[0.06]"
+                    }`}
                 >
                   {item.label}
                 </Link>

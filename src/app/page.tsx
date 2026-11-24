@@ -7,7 +7,7 @@ import { GlowingBorderRunner } from "@/components/ui/BorderBeam";
 import { SpotlightCard } from "@/components/ui/SpotlightCard";
 import { ImpactMetrics } from "@/components/ui/ImpactMetrics";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
-import { ArrowRight, Calendar, MapPin, Users, Heart, Sparkles, Building2, Shield, Check } from "lucide-react";
+import { ArrowRight, Calendar, MapPin, Users, Heart, Sparkles, Building2, Shield, Check, Clock, ExternalLink, Download, Bell, Phone } from "lucide-react";
 
 export const dynamic = "force-dynamic";
 export const revalidate = 0;
@@ -148,7 +148,7 @@ export default async function HomePage() {
               href="/membership"
               className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-[#A31D1D] to-[#EF4444] px-7 py-3.5 text-sm font-bold text-white shadow-xl shadow-[#A31D1D]/25 transition-all duration-200 hover:scale-105 active:scale-95"
             >
-              <span>Join POAS · Membership</span>
+              <span>Membership (Coming Soon)</span>
               <ArrowRight className="h-4 w-4" />
             </Link>
 
@@ -270,6 +270,98 @@ export default async function HomePage() {
                     <span>Support Mandir Fund</span>
                   </Link>
                 </div>
+              </div>
+
+            </div>
+
+          </div>
+        </ScrollReveal>
+      </section>
+
+
+      {/* =========================================================================
+          UPCOMING LANDMARK EVENT · NUAKHAI BHETGHAT 2026 (FULL POSTER SHOWCASE)
+         ========================================================================= */}
+      <section className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <ScrollReveal>
+          <div className="relative overflow-hidden rounded-3xl glass-panel-elevated p-6 sm:p-10 lg:p-12 border border-[#A31D1D]/40 shadow-2xl">
+            <GlowingBorderRunner />
+            <ShimmerBorder />
+            
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+              
+              {/* Event Details (Left Column) */}
+              <div className="lg:col-span-7 space-y-5">
+                <div className="inline-flex items-center gap-2 rounded-full border border-[#EF4444]/40 bg-[#241113] px-3.5 py-1 text-xs font-bold uppercase tracking-wider text-[#EF4444]">
+                  <span className="h-2 w-2 rounded-full bg-[#EF4444] animate-ping" />
+                  <span>Upcoming Celebration · ୨୯ ନଭେମ୍ବର ୨୦୨୬</span>
+                </div>
+
+                <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-white leading-tight">
+                  POAS Nuakhai Bhetghat 2026
+                </h2>
+
+                <p className="font-odia text-xl sm:text-2xl text-[#EF4444] font-medium">
+                  ପଶ୍ଚିମ ଓଡ଼ିଶା ଅଗ୍ରଣୀ ସଂଗଠନର ଭବ୍ୟ ନୂଆଁଖାଇ ଭେଟଘାଟ
+                </p>
+
+                <p className="text-sm sm:text-base text-[#D1D5DB] leading-relaxed">
+                  Join the families, youth, and diaspora of all 10+ Western Odisha districts in Bhubaneswar for our grand annual cultural conclave. Experience the sacred Nabanna offering to Maa Samalei, traditional Panchabadya, Sambalpuri folk music and dance performances, and community fellowship.
+                </p>
+
+                {/* Key Event Badges */}
+                <div className="space-y-3 pt-2 text-xs sm:text-sm text-white">
+                  <div className="flex items-center gap-3">
+                    <Calendar className="h-4 w-4 text-[#EF4444] flex-none" />
+                    <span className="font-semibold">Sunday, 29 November, 2026</span>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <Clock className="h-4 w-4 text-[#EF4444] flex-none" />
+                    <span>10:00 AM onwards (Full-day Cultural Programme)</span>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <MapPin className="h-4 w-4 text-[#EF4444] flex-none" />
+                    <span>POAS Cultural Grounds / Railway Auditorium, Bhubaneswar</span>
+                  </div>
+                </div>
+
+                {/* CTAs */}
+                <div className="pt-4 flex flex-wrap items-center gap-4">
+                  <Link
+                    href="/events"
+                    className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-[#A31D1D] to-[#EF4444] px-6 py-2.5 text-xs font-bold text-white shadow-lg hover:scale-105 active:scale-95 transition-all"
+                  >
+                    <span>View Event Schedule</span>
+                    <ArrowRight className="h-3.5 w-3.5" />
+                  </Link>
+
+                  <a
+                    href="/images/events/nuakhai-bhetghat-29-november-poster.jpeg"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 rounded-full border border-white/20 bg-white/[0.05] px-5 py-2.5 text-xs font-semibold text-white hover:bg-white/[0.1] hover:border-[#A31D1D] transition-colors"
+                  >
+                    <span>View Full Poster (HD)</span>
+                    <ExternalLink className="h-3.5 w-3.5 text-[#EF4444]" />
+                  </a>
+                </div>
+              </div>
+
+              {/* Full Official Event Poster (Right Column - Fully Optimized for Phone & Desktop) */}
+              <div className="lg:col-span-5 flex flex-col items-center">
+                <div className="relative w-full max-w-[320px] sm:max-w-[380px] lg:max-w-[400px] aspect-[1132/1600] rounded-2xl overflow-hidden border-2 border-[#A31D1D] shadow-[0_0_35px_rgba(163,29,29,0.45)] bg-black group transition-transform duration-300 hover:scale-[1.01]">
+                  <Image
+                    src="/images/events/nuakhai-bhetghat-29-november-poster.jpeg"
+                    alt="Official Nuakhai Bhetghat 2026 Poster"
+                    fill
+                    priority
+                    sizes="(max-width: 640px) 90vw, (max-width: 1024px) 380px, 400px"
+                    className="object-contain"
+                  />
+                </div>
+                <span className="text-[11px] text-[#9CA3AF] mt-2 block text-center">
+                  Official Invitation Poster · Nuakhai Bhetghat 2026
+                </span>
               </div>
 
             </div>
@@ -530,14 +622,14 @@ export default async function HomePage() {
             "30+ Years of Western Odisha Culture, Community and Social Leadership",
             "Maa Samalei Mandir Project: Building Our Sacred Cultural Sanctuary in Bhubaneswar",
             "Uniting 10+ Districts: Sambalpur, Balangir, Bargarh, Kalahandi, Nuapada & beyond",
-            "Lifetime Membership (₹1,000) & Yearly Membership (₹100) — Enrol Today",
+            "POAS Membership Enrolment Coming Soon — Stay Tuned",
             "ଜୟ ମାଁ ସମଲେଇ 🙏 Sacred Heritage, Solidarity and Shared Future",
           ].concat([
             "ଜୁହାର 🙏 ପଶ୍ଚିମ ଓଡ଼ିଶା ଅଗ୍ରଣୀ ସଂଗଠନ (POAS) ଭୁବନେଶ୍ୱର",
             "30+ Years of Western Odisha Culture, Community and Social Leadership",
             "Maa Samalei Mandir Project: Building Our Sacred Cultural Sanctuary in Bhubaneswar",
             "Uniting 10+ Districts: Sambalpur, Balangir, Bargarh, Kalahandi, Nuapada & beyond",
-            "Lifetime Membership (₹1,000) & Yearly Membership (₹100) — Enrol Today",
+            "POAS Membership Enrolment Coming Soon — Stay Tuned",
             "ଜୟ ମାଁ ସମଲେଇ 🙏 Sacred Heritage, Solidarity and Shared Future",
           ]).map((msg, i) => (
             <div
@@ -553,127 +645,48 @@ export default async function HomePage() {
 
 
       {/* =========================================================================
-          7. TWO-TIER MEMBERSHIP SPOTLIGHT (LIFETIME ₹1,000 & YEARLY ₹100)
+          7. MEMBERSHIP SPOTLIGHT (COMING SOON)
          ========================================================================= */}
-      <section className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+      <section className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
         <ScrollReveal>
-          <div className="rounded-3xl glass-panel-elevated p-8 sm:p-12 shadow-2xl relative overflow-hidden border border-[#A31D1D]/40">
+          <div className="rounded-3xl glass-panel-elevated p-8 sm:p-12 shadow-2xl relative overflow-hidden border border-[#A31D1D]/40 text-center">
             <GlowingBorderRunner />
             <ShimmerBorder />
             
-            <div className="max-w-3xl mx-auto text-center space-y-3 relative z-10 mb-10">
-              <span className="text-xs font-bold uppercase tracking-widest text-[#EF4444]">
-                Join the Sangathan
-              </span>
-              <h2 className="font-serif text-3xl sm:text-5xl font-bold text-white">
-                Official POAS Membership System
+            <div className="relative z-10 max-w-2xl mx-auto space-y-4">
+              <div className="inline-flex items-center gap-2 rounded-full border border-[#EF4444]/40 bg-[#EF4444]/15 px-4 py-1.5 text-xs font-bold uppercase tracking-widest text-[#EF4444] animate-pulse">
+                <span className="h-2 w-2 rounded-full bg-[#EF4444]" />
+                Official Sangathan Announcement
+              </div>
+
+              <h2 className="font-serif text-3xl sm:text-5xl font-bold text-white tracking-wide">
+                Membership Coming Soon
               </h2>
-              <p className="text-sm sm:text-base text-[#D1D5DB] leading-relaxed">
-                Be an active stakeholder in preserving Western Odisha's heritage, participating in Maa Samalei Mandir deliberations, and building our community solidarity in Bhubaneswar.
+
+              <p className="font-odia text-xl sm:text-2xl font-bold text-[#EF4444]">
+                ସଦସ୍ୟତା ନାମାଙ୍କନ ଶୀଘ୍ର ଆରମ୍ଭ ହେଉଛି
               </p>
-            </div>
 
-            {/* Two Tier Cards */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 relative z-10">
-              
-              {/* Tier 1: Lifetime Membership (₹1,000) */}
-              <div className="relative rounded-2xl bg-gradient-to-b from-[#241113] to-[#141416] border-2 border-[#A31D1D] p-6 sm:p-8 flex flex-col justify-between shadow-[0_0_25px_rgba(163,29,29,0.3)]">
-                <div className="absolute -top-3 right-6 rounded-full bg-[#A31D1D] px-3 py-0.5 text-[10px] font-bold uppercase tracking-wider text-white">
-                  Most Recommended
-                </div>
+              <p className="text-sm sm:text-base text-[#D1D5DB] leading-relaxed max-w-xl mx-auto">
+                Official registration for Paschim Odisha Agrani Sangathana (POAS) membership is being configured and will open shortly. Stay connected with our executive body for the official launch.
+              </p>
 
-                <div>
-                  <h3 className="font-serif text-2xl font-bold text-white">
-                    Lifetime Membership
-                  </h3>
-                  <span className="text-xs font-odia text-[#EF4444] block mt-0.5">
-                    ଆଜୀବନ ସଦସ୍ୟତା
-                  </span>
-                  
-                  <div className="mt-4 flex items-baseline gap-2">
-                    <span className="font-serif text-4xl sm:text-5xl font-bold text-white">
-                      ₹1,000
-                    </span>
-                    <span className="text-xs text-[#9CA3AF]">one-time contribution</span>
-                  </div>
+              <div className="pt-4 flex flex-wrap items-center justify-center gap-4">
+                <Link
+                  href="/membership"
+                  className="inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-[#A31D1D] to-[#EF4444] px-6 py-3.5 text-xs sm:text-sm font-bold text-white shadow-xl shadow-[#A31D1D]/30 hover:scale-105 active:scale-95 transition-all"
+                >
+                  <span>Membership Details</span>
+                  <ArrowRight className="h-4 w-4" />
+                </Link>
 
-                  <ul className="mt-6 space-y-2.5 text-xs text-[#D1D5DB]">
-                    <li className="flex items-center gap-2">
-                      <Check className="h-4 w-4 text-[#EF4444] flex-none" />
-                      <span>Permanent digital membership badge &amp; certificate</span>
-                    </li>
-                    <li className="flex items-center gap-2">
-                      <Check className="h-4 w-4 text-[#EF4444] flex-none" />
-                      <span>Full constitutional voting rights in POAS General Body</span>
-                    </li>
-                    <li className="flex items-center gap-2">
-                      <Check className="h-4 w-4 text-[#EF4444] flex-none" />
-                      <span>VIP seating &amp; invitations at Nuakhai Bhetghat</span>
-                    </li>
-                    <li className="flex items-center gap-2">
-                      <Check className="h-4 w-4 text-[#EF4444] flex-none" />
-                      <span>Direct representation in Maa Samalei Mandir committee</span>
-                    </li>
-                  </ul>
-                </div>
-
-                <div className="mt-8">
-                  <Link
-                    href="/membership?tier=LIFETIME"
-                    className="w-full inline-flex items-center justify-center rounded-xl bg-gradient-to-r from-[#A31D1D] to-[#EF4444] py-3 text-xs font-bold text-white shadow-lg hover:scale-[1.02] active:scale-95 transition-all"
-                  >
-                    Enrol as Lifetime Member (₹1,000)
-                  </Link>
-                </div>
+                <Link
+                  href="/contact"
+                  className="inline-flex items-center gap-2 rounded-xl border border-white/20 bg-white/[0.06] px-6 py-3.5 text-xs sm:text-sm font-semibold text-white hover:bg-white/[0.12] hover:border-[#A31D1D] transition-all"
+                >
+                  <span>Contact Secretariat</span>
+                </Link>
               </div>
-
-              {/* Tier 2: Yearly Membership (₹100) */}
-              <div className="rounded-2xl bg-[#141416] border border-white/10 p-6 sm:p-8 flex flex-col justify-between hover:border-white/30 transition-all">
-                <div>
-                  <h3 className="font-serif text-2xl font-bold text-white">
-                    Yearly Membership
-                  </h3>
-                  <span className="text-xs font-odia text-[#9CA3AF] block mt-0.5">
-                    ବାର୍ଷିକ ସଦସ୍ୟତା
-                  </span>
-                  
-                  <div className="mt-4 flex items-baseline gap-2">
-                    <span className="font-serif text-4xl sm:text-5xl font-bold text-white">
-                      ₹100
-                    </span>
-                    <span className="text-xs text-[#9CA3AF]">per annum</span>
-                  </div>
-
-                  <ul className="mt-6 space-y-2.5 text-xs text-[#D1D5DB]">
-                    <li className="flex items-center gap-2">
-                      <Check className="h-4 w-4 text-white/70 flex-none" />
-                      <span>Annual membership card &amp; directory listing</span>
-                    </li>
-                    <li className="flex items-center gap-2">
-                      <Check className="h-4 w-4 text-white/70 flex-none" />
-                      <span>Participation in community forums &amp; youth events</span>
-                    </li>
-                    <li className="flex items-center gap-2">
-                      <Check className="h-4 w-4 text-white/70 flex-none" />
-                      <span>Access to POAS emergency mutual aid support</span>
-                    </li>
-                    <li className="flex items-center gap-2">
-                      <Check className="h-4 w-4 text-white/70 flex-none" />
-                      <span>Option to upgrade to Lifetime Membership anytime</span>
-                    </li>
-                  </ul>
-                </div>
-
-                <div className="mt-8">
-                  <Link
-                    href="/membership?tier=YEARLY"
-                    className="w-full inline-flex items-center justify-center rounded-xl border border-white/20 bg-white/[0.06] py-3 text-xs font-bold text-white hover:bg-white/[0.12] hover:border-white/40 transition-all"
-                  >
-                    Enrol as Yearly Member (₹100)
-                  </Link>
-                </div>
-              </div>
-
             </div>
 
           </div>

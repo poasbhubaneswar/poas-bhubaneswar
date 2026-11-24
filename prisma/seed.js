@@ -421,14 +421,13 @@ async function main() {
     where: { slug: "nuakhai-vetaghat-bhubaneswar-2026" },
     update: {
       title: "POAS Nuakhai Bhetghat 2026",
+      eventDate: new Date("2026-11-29T10:00:00Z"),
+      bannerImage: "/images/events/nuakhai-bhetghat-29-november-poster.jpeg",
       images: JSON.stringify([
+        "/images/events/nuakhai-bhetghat-29-november-poster.jpeg",
         "/images/hero/nuakhai-ceremony-hero.jpeg",
         "/images/events/samalei-fellowship-hall.jpeg",
         "/images/events/poas-committee-review.jpeg",
-        "/images/events/cultural-mandap-gathering.jpeg",
-        "/images/meetings/meeting-prasanna-acharya.jpeg",
-        "/images/meetings/meeting-kalikesh-singh-deo.jpeg",
-        "/images/posters/nuakhai-event-poster-2026.jpeg"
       ]),
     },
     create: {
@@ -438,18 +437,15 @@ async function main() {
       fullDetails: "Nuakhai is more than a harvest festival; it is a sacred social covenant of gratitude, reconciliation, and togetherness. Nuakhai Bhetghat 2026 organized by Paschim Odisha Agrani Sangathan features traditional Sambalpuri Panchabadya, devotional prayers to Maa Samaleswari, ceremonial Nabanna offering, Sambalpuri folk music and dance performances, and community feast.",
       venue: "POAS Cultural Grounds, Bhubaneswar, Odisha",
       location: "Bhubaneswar, Odisha",
-      eventDate: new Date("2026-09-26T10:00:00Z"),
+      eventDate: new Date("2026-11-29T10:00:00Z"),
       startTime: "10:00 AM",
       endTime: "08:30 PM",
-      bannerImage: "/images/hero/nuakhai-ceremony-hero.jpeg",
+      bannerImage: "/images/events/nuakhai-bhetghat-29-november-poster.jpeg",
       images: JSON.stringify([
+        "/images/events/nuakhai-bhetghat-29-november-poster.jpeg",
         "/images/hero/nuakhai-ceremony-hero.jpeg",
         "/images/events/samalei-fellowship-hall.jpeg",
         "/images/events/poas-committee-review.jpeg",
-        "/images/events/cultural-mandap-gathering.jpeg",
-        "/images/meetings/meeting-prasanna-acharya.jpeg",
-        "/images/meetings/meeting-kalikesh-singh-deo.jpeg",
-        "/images/posters/nuakhai-event-poster-2026.jpeg"
       ]),
       isPublished: true,
       registrationOpen: true,

@@ -29,10 +29,10 @@ const METRICS: MetricItem[] = [
     description: "Students, families, professionals, and senior citizens participating in POAS initiatives.",
   },
   {
-    number: "2 Tiers",
-    label: "Lifetime & Yearly",
-    odiaLabel: "ଆଜୀବନ ଓ ବାର୍ଷିକ ସଦସ୍ୟତା",
-    description: "Empowering our diaspora with Lifetime (₹1,000) and Yearly (₹100) memberships.",
+    number: "Sangathan",
+    label: "Community Fellowship",
+    odiaLabel: "ସଦସ୍ୟତା ଓ ସହଭାଗିତା",
+    description: "Uniting Western Odisha families, youth, and elders under one democratic umbrella.",
   },
 ];
 

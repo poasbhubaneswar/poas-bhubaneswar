@@ -154,7 +154,7 @@ export default function AboutPage() {
               {
                 year: "2020s & Beyond",
                 title: "Democratic Consolidation & New Governing Body",
-                desc: "Electing a modern 19-member Governing Body and Executive Council, digitizing membership with Lifetime (₹1,000) and Yearly (₹100) tiers, and advancing land allocation for the sacred Mandir.",
+                desc: "Electing a modern 19-member Governing Body and Executive Council, digitizing membership enrolment, and advancing land allocation for the sacred Mandir.",
               },
             ].map((milestone, idx) => (
               <div

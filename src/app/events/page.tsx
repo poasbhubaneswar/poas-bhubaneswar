@@ -2,7 +2,7 @@ import { prisma } from "@/lib/prisma";
 import { SambalpuriBand, ShimmerBorder } from "@/components/ui/SambalpuriMotif";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 import { PhotoCarousel } from "@/components/ui/PhotoCarousel";
-import { Calendar, Clock, MapPin, Sparkles } from "lucide-react";
+import { Calendar, Clock, MapPin, Sparkles, ExternalLink, Download } from "lucide-react";
 import Image from "next/image";
 import { format } from "date-fns";
 
@@ -92,16 +92,38 @@ export default async function EventsPage() {
                 </div>
               </div>
 
-              {/* Instagram Multi-Photo Carousel */}
-              <div className="lg:col-span-5">
-                <div className="rounded-2xl overflow-hidden border border-[#A31D1D]/40 shadow-2xl bg-black">
-                  <PhotoCarousel
-                    images={eventImages}
-                    alt={event.title}
-                    aspectRatio="video"
-                    showCounter={true}
-                    showDots={true}
+              {/* Official Upcoming Event Poster (Full Poster Display, Optimized for Phone & Desktop) */}
+              <div className="lg:col-span-5 flex flex-col items-center">
+                <div className="relative w-full max-w-[340px] sm:max-w-[420px] aspect-[1132/1600] rounded-2xl overflow-hidden border-2 border-[#A31D1D] shadow-[0_0_35px_rgba(163,29,29,0.45)] bg-black transition-transform duration-300 hover:scale-[1.01]">
+                  <Image
+                    src={event.bannerImage || "/images/events/nuakhai-bhetghat-29-november-poster.jpeg"}
+                    alt="Official POAS Nuakhai Bhetghat 2026 Celebration Poster"
+                    fill
+                    priority
+                    sizes="(max-width: 640px) 92vw, (max-width: 1024px) 420px, 450px"
+                    className="object-contain"
                   />
+                </div>
+
+                <div className="mt-4 flex flex-wrap items-center justify-center gap-3">
+                  <a
+                    href={event.bannerImage || "/images/events/nuakhai-bhetghat-29-november-poster.jpeg"}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 rounded-full bg-[#A31D1D] px-4 py-2 text-xs font-bold text-white shadow-md hover:bg-[#EF4444] transition-all"
+                  >
+                    <span>View Full Poster (HD)</span>
+                    <ExternalLink className="h-3.5 w-3.5" />
+                  </a>
+
+                  <a
+                    href={event.bannerImage || "/images/events/nuakhai-bhetghat-29-november-poster.jpeg"}
+                    download="POAS-Nuakhai-Bhetghat-2026-Poster.jpeg"
+                    className="inline-flex items-center gap-1.5 rounded-full border border-white/20 bg-white/[0.05] px-4 py-2 text-xs font-semibold text-white hover:bg-white/[0.1] transition-colors"
+                  >
+                    <Download className="h-3.5 w-3.5 text-[#EF4444]" />
+                    <span>Download</span>
+                  </a>
                 </div>
               </div>
 
