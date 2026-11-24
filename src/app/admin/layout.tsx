@@ -45,7 +45,7 @@ export default async function AdminLayout({
         <div>
           {/* Logo Brand */}
           <div className="flex items-center gap-3 pb-6 border-b border-[#2D2D35]">
-            <div className="relative h-11 w-11 rounded-full bg-white border-2 border-[#A31D1D] overflow-hidden flex items-center justify-center flex-none p-1 shadow-sm">
+            <div className="relative h-11 w-11 rounded-xl bg-white border-2 border-[#A31D1D] overflow-hidden flex items-center justify-center flex-none p-1 shadow-sm">
               <Image
                 src="/images/poas-logo.png"
                 alt="POAS Logo"

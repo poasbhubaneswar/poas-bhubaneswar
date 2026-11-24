@@ -16,7 +16,7 @@ export default function AboutPage() {
       {/* Header */}
       <ScrollReveal>
         <div className="text-center max-w-3xl mx-auto">
-          <div className="relative mb-5 mx-auto h-22 w-22 flex items-center justify-center rounded-full bg-white border-2 border-[#A31D1D] overflow-hidden shadow-[0_0_30px_rgba(255,255,255,0.2),0_0_20px_rgba(163,29,29,0.5)] p-2">
+          <div className="relative mb-5 mx-auto h-22 w-22 flex items-center justify-center rounded-2xl bg-white border-2 border-[#A31D1D] overflow-hidden shadow-[0_0_30px_rgba(255,255,255,0.2),0_0_20px_rgba(163,29,29,0.5)] p-2">
             <Image
               src="/images/poas-logo.png"
               alt="POAS Official Logo"

@@ -26,7 +26,7 @@ export async function Footer() {
           {/* Column 1 & 2: Brand & Heritage Identity */}
           <div className="lg:col-span-2 space-y-4">
             <div className="flex items-center gap-3">
-              <div className="relative flex h-13 w-13 flex-none items-center justify-center rounded-full bg-white border-2 border-[#A31D1D] shadow-md overflow-hidden p-1">
+              <div className="relative flex h-13 w-13 flex-none items-center justify-center rounded-xl bg-white border-2 border-[#A31D1D] shadow-md overflow-hidden p-1.5">
                 <Image
                   src="/images/poas-logo.png"
                   alt="POAS Official Logo"

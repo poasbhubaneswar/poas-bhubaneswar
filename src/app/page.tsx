@@ -112,8 +112,8 @@ export default async function HomePage() {
 
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center relative z-10 flex flex-col items-center">
           
-          {/* Official POAS Logo Presentation with Clean White Background */}
-          <div className="relative mb-6 flex h-24 w-24 sm:h-28 sm:w-28 items-center justify-center rounded-full bg-white border-2 border-[#A31D1D] shadow-[0_0_35px_rgba(255,255,255,0.25),0_0_25px_rgba(163,29,29,0.5)] overflow-hidden p-2 transition-transform duration-300 hover:scale-105">
+          {/* Official POAS Logo Presentation with Clean White Square Background */}
+          <div className="relative mb-6 flex h-24 w-24 sm:h-28 sm:w-28 items-center justify-center rounded-2xl bg-white border-3 border-[#A31D1D] shadow-[0_0_35px_rgba(255,255,255,0.25),0_0_25px_rgba(163,29,29,0.5)] overflow-hidden p-2.5 transition-transform duration-300 hover:scale-105">
             <Image
               src="/images/poas-logo.png"
               alt="Paschim Odisha Agrani Sangathana Official Logo"
