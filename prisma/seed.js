@@ -6,19 +6,27 @@ const prisma = new PrismaClient();
 async function main() {
   console.log("Seeding POAS – Paschim Odisha Agrani Sangathana database...");
 
-  // 1. Create Default Super Admin
-  const hashedPassword = await bcrypt.hash("NuakhaiAdmin2026!#", 10);
-  const admin = await prisma.user.upsert({
-    where: { email: "admin@nuakhaivetaghat.org" },
-    update: {},
-    create: {
-      email: "admin@nuakhaivetaghat.org",
-      name: "POAS Super Administrator",
-      passwordHash: hashedPassword,
-      role: "SUPER_ADMIN",
-    },
-  });
-  console.log("Admin account created:", admin.email);
+  // 1. Create Default Super Admin Accounts
+  const hashedPassword = await bcrypt.hash("POAS@2026!Admin", 10);
+  const adminEmails = [
+    "admin@poasbhubaneswar.org",
+    "poasbhubaneswar@gmail.com",
+    "admin@nuakhaivetaghat.org",
+  ];
+
+  for (const email of adminEmails) {
+    await prisma.user.upsert({
+      where: { email },
+      update: { passwordHash: hashedPassword },
+      create: {
+        email,
+        name: "POAS Super Administrator",
+        passwordHash: hashedPassword,
+        role: "SUPER_ADMIN",
+      },
+    });
+    console.log("Admin account synchronized:", email);
+  }
 
   // 2. Seed Official POAS Leadership, Advisors & Governing Body
   await prisma.officeBearer.deleteMany({});

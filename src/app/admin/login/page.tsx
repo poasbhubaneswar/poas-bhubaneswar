@@ -52,8 +52,8 @@ export default function AdminLoginPage() {
                 name="email"
                 type="email"
                 required
-                defaultValue="admin@nuakhaivetaghat.org"
-                placeholder="admin@nuakhaivetaghat.org"
+                defaultValue="admin@poasbhubaneswar.org"
+                placeholder="admin@poasbhubaneswar.org"
                 className="w-full rounded-xl border border-[#2D2D35] bg-[#0B0B0C] pl-10 pr-4 py-3 text-sm text-white focus:border-[#A31D1D] focus:outline-none"
               />
             </div>
@@ -69,7 +69,7 @@ export default function AdminLoginPage() {
                 name="password"
                 type="password"
                 required
-                defaultValue="Nuakhai@2026!POAS"
+                defaultValue="POAS@2026!Admin"
                 placeholder="••••••••••••"
                 className="w-full rounded-xl border border-[#2D2D35] bg-[#0B0B0C] pl-10 pr-4 py-3 text-sm text-white focus:border-[#A31D1D] focus:outline-none"
               />
@@ -79,12 +79,26 @@ export default function AdminLoginPage() {
           <button
             type="submit"
             disabled={isPending}
-            className="w-full mt-2 inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-[#A31D1D] to-[#EF4444] py-3 text-xs font-bold text-white shadow-lg hover:scale-[1.02] active:scale-95 transition-all disabled:opacity-50"
+            className="w-full mt-2 inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-[#A31D1D] to-[#EF4444] py-3 text-xs font-bold text-white shadow-lg hover:scale-[1.02] active:scale-95 transition-all disabled:opacity-50 cursor-pointer"
           >
             <span>{isPending ? "Authenticating..." : "Sign in to Control Console"}</span>
             <ArrowRight className="h-4 w-4" />
           </button>
         </form>
+
+        {/* Credentials reminder for authorized committee */}
+        <div className="mt-6 rounded-2xl border border-[#2D2D35] bg-[#0B0B0C]/80 p-3.5 text-center">
+          <div className="flex items-center justify-center gap-1.5 text-xs font-semibold text-[#EF4444] mb-1.5">
+            <Shield className="h-3.5 w-3.5" />
+            <span>Authorized Administrator Access</span>
+          </div>
+          <p className="text-[11px] text-[#9CA3AF]">
+            Email: <code className="text-white font-mono bg-[#141416] px-1.5 py-0.5 rounded border border-[#2D2D35]">admin@poasbhubaneswar.org</code>
+          </p>
+          <p className="text-[11px] text-[#9CA3AF] mt-1">
+            Password: <code className="text-white font-mono bg-[#141416] px-1.5 py-0.5 rounded border border-[#2D2D35]">POAS@2026!Admin</code>
+          </p>
+        </div>
 
         <div className="mt-8 text-center pt-4 border-t border-[#2D2D35]">
           <Link href="/" className="text-xs text-[#9CA3AF] hover:text-white transition-colors">
