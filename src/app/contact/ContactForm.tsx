@@ -85,6 +85,7 @@ export function ContactForm() {
               <option value="Nuakhai Celebrations">Nuakhai Bhetghat Celebrations</option>
               <option value="Membership Question">Membership Enrolment Details</option>
               <option value="Volunteering">Volunteering &amp; Cultural Participation</option>
+              <option value="Others">Others</option>
             </select>
           </div>
         </div>

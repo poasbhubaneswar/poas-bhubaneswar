@@ -9,8 +9,8 @@ export const dynamic = "force-dynamic";
 export const revalidate = 0;
 
 export const metadata = {
-  title: "Governing Body & Leadership | Paschim Odisha Agrani Sangathana",
-  description: "Official Governing Body according to the electoral resolution, Leadership & Board of Advisors according to POAS LH.",
+  title: "Leadership & Governing Body | Paschim Odisha Agrani Sangathana",
+  description: "Official Leadership & Board of Advisors according to POAS LH, and Governing Body according to the electoral resolution.",
 };
 
 export default async function LeadershipPage() {
@@ -29,8 +29,8 @@ export default async function LeadershipPage() {
     },
   });
 
-  const governingBody = allBearers.filter((b) => b.category === "GOVERNING_BODY");
   const advisors = allBearers.filter((b) => b.category === "ADVISORY_COUNCIL");
+  const governingBody = allBearers.filter((b) => b.category === "GOVERNING_BODY");
   const executiveBody = allBearers.filter((b) => b.category === "EXECUTIVE_BODY");
 
   return (
@@ -41,32 +41,32 @@ export default async function LeadershipPage() {
          ========================================================================= */}
       <ScrollReveal>
         <div className="text-center max-w-3xl mx-auto">
-          <div className="inline-flex items-center gap-2 rounded-full border border-[#A31D1D]/50 bg-[#1A1A1E] px-4 py-1 text-xs font-semibold text-[#EF4444] mb-3">
-            <Shield className="h-3.5 w-3.5" />
+          <div className="inline-flex items-center gap-2 rounded-full border border-amber-500/40 bg-amber-500/10 px-4 py-1 text-xs font-semibold text-amber-300 mb-3">
+            <Award className="h-3.5 w-3.5" />
             <span>Constitutional Structure &amp; Institutional Governance</span>
           </div>
 
           <h1 className="font-serif text-4xl sm:text-6xl font-bold tracking-tight text-white mt-2">
-            Governing Body &amp; Leadership
+            Leadership &amp; Governing Body
           </h1>
 
           <p className="text-base text-[#D1D5DB] mt-3 leading-relaxed font-odia text-lg">
-            "ପଶ୍ଚିମ ଓଡ଼ିଶା ଅଗ୍ରଣୀ ସଂଗଠନର ନିର୍ବାଚିତ ପରିଚାଳନା ପରିଷଦ, ନେତୃତ୍ୱ ମଣ୍ଡଳୀ ଓ ଉପଦେଷ୍ଟା ପରିଷଦ"
+            "ପଶ୍ଚିମ ଓଡ଼ିଶା ଅଗ୍ରଣୀ ସଂଗଠନର ଉପଦେଷ୍ଟା ପରିଷଦ, ନିର୍ବାଚିତ ପରିଚାଳନା ପରିଷଦ ଓ କାର୍ଯ୍ୟକାରିଣୀ କମିଟି"
           </p>
 
           <p className="text-xs sm:text-sm text-[#9CA3AF] mt-3 max-w-2xl mx-auto leading-relaxed">
-            The official institutional hierarchy of Paschim Odisha Agrani Sangathan (POAS), Bhubaneswar. Governing Body constituted per the official Electoral Resolution, and Leadership &amp; Advisory Council formulated per official Letterhead (<strong className="text-white">POAS LH</strong>, Regd. No. KRD 6761-443, 95-96).
+            The official institutional hierarchy of Paschim Odisha Agrani Sangathan (POAS), Bhubaneswar. Leadership &amp; Board of Advisors formulated per official Letterhead (<strong className="text-white">POAS LH</strong>, Regd. No. KRD 6761-443, 95-96), and Governing Body constituted per the official Electoral Resolution.
           </p>
 
           {/* Dual Institutional Framework Badges */}
           <div className="mt-6 flex flex-wrap items-center justify-center gap-3">
+            <span className="inline-flex items-center gap-1.5 rounded-full border border-amber-500/40 bg-amber-500/10 px-3.5 py-1 text-xs font-medium text-amber-300">
+              <Award className="h-3.5 w-3.5" />
+              <span>Leadership &amp; Advisors per POAS LH</span>
+            </span>
             <span className="inline-flex items-center gap-1.5 rounded-full border border-[#A31D1D]/50 bg-[#241113] px-3.5 py-1 text-xs font-medium text-white">
               <Shield className="h-3.5 w-3.5 text-[#EF4444]" />
               <span>Governing Body per Electoral Resolution</span>
-            </span>
-            <span className="inline-flex items-center gap-1.5 rounded-full border border-amber-500/40 bg-amber-500/10 px-3.5 py-1 text-xs font-medium text-amber-300">
-              <FileText className="h-3.5 w-3.5" />
-              <span>Leadership &amp; Advisors per POAS LH</span>
             </span>
           </div>
         </div>
@@ -75,104 +75,7 @@ export default async function LeadershipPage() {
       <SambalpuriBand className="opacity-80" />
 
       {/* =========================================================================
-          SECTION 1: GOVERNING BODY (According to NEWLY ELECTED GOVERNING BODY.docx)
-         ========================================================================= */}
-      <section id="governing-body" className="space-y-8">
-        <ScrollReveal>
-          <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 border-l-4 border-[#A31D1D] pl-4">
-            <div>
-              <div className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-[#EF4444] mb-1">
-                <Shield className="h-3.5 w-3.5" />
-                <span>According to Newly Elected Governing Body Resolution</span>
-              </div>
-              <h2 className="font-serif text-2xl sm:text-3xl font-bold text-white">
-                Governing Body · ପରିଚାଳନା ପରିଷଦ
-              </h2>
-              <span className="text-xs font-odia text-[#D1D5DB]">
-                ନିର୍ବାଚିତ ପରିଚାଳନା ପରିଷଦ (୯ ଜଣ କର୍ମକର୍ତ୍ତା)
-              </span>
-            </div>
-            <span className="text-xs text-[#9CA3AF] bg-white/[0.04] px-3 py-1 rounded-full border border-white/10 self-start sm:self-auto">
-              9 Elected Office Bearers
-            </span>
-          </div>
-        </ScrollReveal>
-
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-          {governingBody.map((member, idx) => (
-            <ScrollReveal key={member.id} delay={idx * 60}>
-              <div className="group relative flex flex-col rounded-3xl glass-card-interactive overflow-hidden h-full border border-white/10 hover:border-[#A31D1D]">
-                <ShimmerBorder />
-                
-                {/* Image or Cultural Placeholder */}
-                <div className="relative aspect-[3/4] w-full bg-[#111114] overflow-hidden">
-                  {member.imageUrl ? (
-                    <Image
-                      src={member.imageUrl}
-                      alt={member.name}
-                      fill
-                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                      className="object-cover object-top transition-transform duration-700 group-hover:scale-105"
-                    />
-                  ) : (
-                    <div className="flex h-full flex-col items-center justify-center p-6 text-center bg-gradient-to-b from-[#1E1214] to-[#0B0B0C]">
-                      <div className="h-20 w-20 rounded-full bg-[#2A1114] border border-[#A31D1D]/50 flex items-center justify-center text-[#EF4444] mb-3 shadow-inner">
-                        <Users className="h-9 w-9" />
-                      </div>
-                      <span className="text-xs font-bold text-white uppercase tracking-wider block">
-                        {member.designation}
-                      </span>
-                      <div className="mt-3 inline-flex items-center gap-1.5 rounded-full border border-amber-500/40 bg-amber-500/10 px-3 py-1 text-[10px] font-semibold text-amber-400">
-                        <AlertCircle className="h-3 w-3" />
-                        <span>Photo verification pending</span>
-                      </div>
-                    </div>
-                  )}
-
-                  <div className="absolute top-3 right-3 rounded-full bg-black/80 backdrop-blur-md px-3 py-1 text-[10px] font-bold text-[#EF4444] uppercase tracking-wider border border-white/10">
-                    Governing Body
-                  </div>
-                </div>
-
-                {/* Member Details */}
-                <div className="p-6 flex-1 flex flex-col justify-between">
-                  <div>
-                    <h3 className="font-serif text-xl font-bold text-white group-hover:text-[#EF4444] transition-colors leading-snug">
-                      {member.name}
-                    </h3>
-                    {member.nameOdia && (
-                      <span className="text-sm font-odia font-medium text-[#EF4444] block mt-1">
-                        {member.nameOdia}
-                      </span>
-                    )}
-                    <div className="mt-2 inline-block rounded-lg bg-[#241113] border border-[#A31D1D]/50 px-3 py-1 text-xs font-bold text-white">
-                      {member.designation}
-                    </div>
-                    {member.bio && (
-                      <p className="text-xs text-[#9CA3AF] mt-3 leading-relaxed">
-                        {member.bio}
-                      </p>
-                    )}
-                  </div>
-
-                  <div className="mt-6 pt-4 border-t border-[#2D2D35] flex items-center justify-between text-xs text-[#9CA3AF]">
-                    <span className="text-[11px] text-[#9CA3AF] uppercase tracking-wider font-semibold">
-                      Governing Council
-                    </span>
-
-                    <span className="inline-flex items-center gap-1 text-[11px] text-green-400 font-medium">
-                      <CheckCircle2 className="h-3.5 w-3.5" /> Elected
-                    </span>
-                  </div>
-                </div>
-              </div>
-            </ScrollReveal>
-          ))}
-        </div>
-      </section>
-
-      {/* =========================================================================
-          SECTION 2: BOARD OF ADVISORS / LEADERSHIP (According to POAS LH.pdf)
+          SECTION 1: BOARD OF ADVISORS / LEADERSHIP (According to POAS LH.pdf)
          ========================================================================= */}
       <section id="advisors" className="space-y-8">
         <ScrollReveal>
@@ -259,6 +162,103 @@ export default async function LeadershipPage() {
 
                     <span className="inline-flex items-center gap-1 text-[11px] text-amber-400 font-medium">
                       <CheckCircle2 className="h-3.5 w-3.5" /> POAS LH
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </ScrollReveal>
+          ))}
+        </div>
+      </section>
+
+      {/* =========================================================================
+          SECTION 2: GOVERNING BODY (According to NEWLY ELECTED GOVERNING BODY.docx)
+         ========================================================================= */}
+      <section id="governing-body" className="space-y-8">
+        <ScrollReveal>
+          <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 border-l-4 border-[#A31D1D] pl-4">
+            <div>
+              <div className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-[#EF4444] mb-1">
+                <Shield className="h-3.5 w-3.5" />
+                <span>According to Newly Elected Governing Body Resolution</span>
+              </div>
+              <h2 className="font-serif text-2xl sm:text-3xl font-bold text-white">
+                Governing Body · ପରିଚାଳନା ପରିଷଦ
+              </h2>
+              <span className="text-xs font-odia text-[#D1D5DB]">
+                ନିର୍ବାଚିତ ପରିଚାଳନା ପରିଷଦ (୯ ଜଣ କର୍ମକର୍ତ୍ତା)
+              </span>
+            </div>
+            <span className="text-xs text-[#9CA3AF] bg-white/[0.04] px-3 py-1 rounded-full border border-white/10 self-start sm:self-auto">
+              9 Elected Office Bearers
+            </span>
+          </div>
+        </ScrollReveal>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+          {governingBody.map((member, idx) => (
+            <ScrollReveal key={member.id} delay={idx * 60}>
+              <div className="group relative flex flex-col rounded-3xl glass-card-interactive overflow-hidden h-full border border-white/10 hover:border-[#A31D1D]">
+                <ShimmerBorder />
+                
+                {/* Image or Cultural Placeholder */}
+                <div className="relative aspect-[3/4] w-full bg-[#111114] overflow-hidden">
+                  {member.imageUrl ? (
+                    <Image
+                      src={member.imageUrl}
+                      alt={member.name}
+                      fill
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                      className="object-cover object-top transition-transform duration-700 group-hover:scale-105"
+                    />
+                  ) : (
+                    <div className="flex h-full flex-col items-center justify-center p-6 text-center bg-gradient-to-b from-[#1E1214] to-[#0B0B0C]">
+                      <div className="h-20 w-20 rounded-full bg-[#2A1114] border border-[#A31D1D]/50 flex items-center justify-center text-[#EF4444] mb-3 shadow-inner">
+                        <Users className="h-9 w-9" />
+                      </div>
+                      <span className="text-xs font-bold text-white uppercase tracking-wider block">
+                        {member.designation}
+                      </span>
+                      <div className="mt-3 inline-flex items-center gap-1.5 rounded-full border border-amber-500/40 bg-amber-500/10 px-3 py-1 text-[10px] font-semibold text-amber-400">
+                        <AlertCircle className="h-3 w-3" />
+                        <span>Photo verification pending</span>
+                      </div>
+                    </div>
+                  )}
+
+                  <div className="absolute top-3 right-3 rounded-full bg-black/80 backdrop-blur-md px-3 py-1 text-[10px] font-bold text-[#EF4444] uppercase tracking-wider border border-white/10">
+                    Governing Body
+                  </div>
+                </div>
+
+                {/* Member Details */}
+                <div className="p-6 flex-1 flex flex-col justify-between">
+                  <div>
+                    <h3 className="font-serif text-xl font-bold text-white group-hover:text-[#EF4444] transition-colors leading-snug">
+                      {member.name}
+                    </h3>
+                    {member.nameOdia && (
+                      <span className="text-sm font-odia font-medium text-[#EF4444] block mt-1">
+                        {member.nameOdia}
+                      </span>
+                    )}
+                    <div className="mt-2 inline-block rounded-lg bg-[#241113] border border-[#A31D1D]/50 px-3 py-1 text-xs font-bold text-white">
+                      {member.designation}
+                    </div>
+                    {member.bio && (
+                      <p className="text-xs text-[#9CA3AF] mt-3 leading-relaxed">
+                        {member.bio}
+                      </p>
+                    )}
+                  </div>
+
+                  <div className="mt-6 pt-4 border-t border-[#2D2D35] flex items-center justify-between text-xs text-[#9CA3AF]">
+                    <span className="text-[11px] text-[#9CA3AF] uppercase tracking-wider font-semibold">
+                      Governing Council
+                    </span>
+
+                    <span className="inline-flex items-center gap-1 text-[11px] text-green-400 font-medium">
+                      <CheckCircle2 className="h-3.5 w-3.5" /> Elected
                     </span>
                   </div>
                 </div>
@@ -357,17 +357,6 @@ export default async function LeadershipPage() {
           ))}
         </div>
       </section>
-
-      {/* Cross Navigation Link */}
-      <div className="text-center pt-8 border-t border-[#2D2D35]">
-        <Link
-          href="/governing-body"
-          className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/[0.05] px-6 py-2.5 text-xs font-bold text-white hover:bg-white/[0.1] hover:border-[#A31D1D] transition-all"
-        >
-          <span>Explore Dedicated Newly Elected Governing Body Resolution View</span>
-          <ArrowRight className="h-3.5 w-3.5 text-[#EF4444]" />
-        </Link>
-      </div>
 
     </div>
   );

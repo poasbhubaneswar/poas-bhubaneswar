@@ -157,7 +157,7 @@ export default async function HomePage() {
               className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/[0.06] backdrop-blur-md px-6 py-3.5 text-sm font-semibold text-white transition-all duration-200 hover:bg-white/[0.12] hover:border-[#A31D1D]"
             >
               <Users className="h-4 w-4 text-[#EF4444]" />
-              <span>Governing Body</span>
+              <span>Leadership</span>
             </Link>
 
             <Link
@@ -317,11 +317,11 @@ export default async function HomePage() {
                   </div>
                   <div className="flex items-center gap-3">
                     <Clock className="h-4 w-4 text-[#EF4444] flex-none" />
-                    <span>10:00 AM onwards (Full-day Cultural Programme)</span>
+                    <span>10:30 AM onwards</span>
                   </div>
                   <div className="flex items-center gap-3">
                     <MapPin className="h-4 w-4 text-[#EF4444] flex-none" />
-                    <span>POAS Cultural Grounds / Railway Auditorium, Bhubaneswar</span>
+                    <span>Adivasi Ground, Unit-1, Bhubaneswar</span>
                   </div>
                 </div>
 
@@ -456,10 +456,10 @@ export default async function HomePage() {
               Constitutional Governance
             </span>
             <h2 className="font-serif text-3xl sm:text-4xl font-bold tracking-tight text-white mt-1.5">
-              Governing Body &amp; Leadership Structure
+              Leadership &amp; Governing Body
             </h2>
             <p className="text-sm text-[#9CA3AF] mt-2">
-              All 24 office bearers, advisors, and executive council members guiding Paschim Odisha Agrani Sangathana.
+              Distinguished advisors, elected governing body office bearers, and executive council members guiding Paschim Odisha Agrani Sangathana.
             </p>
           </div>
         </ScrollReveal>
