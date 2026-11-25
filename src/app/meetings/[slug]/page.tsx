@@ -1,8 +1,8 @@
 import { prisma } from "@/lib/prisma";
 import Link from "next/link";
+import Image from "next/image";
 import { notFound } from "next/navigation";
 import { SambalpuriBand, ShimmerBorder } from "@/components/ui/SambalpuriMotif";
-import { PhotoCarousel } from "@/components/ui/PhotoCarousel";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 import { Calendar, MapPin, Users, ArrowLeft, Shield, FileText } from "lucide-react";
 
@@ -93,16 +93,29 @@ export default async function MeetingDetailPage({
         </div>
       </ScrollReveal>
 
-      {/* Instagram-Style Multi-Photo Carousel */}
+      {/* Single Dedicated Meeting Photo with Dignitary Badge */}
       <ScrollReveal>
-        <div className="rounded-3xl overflow-hidden border border-[#2D2D35] bg-black shadow-2xl">
-          <PhotoCarousel
-            images={imageList}
+        <div className="relative aspect-video w-full rounded-3xl overflow-hidden border border-[#2D2D35] bg-black shadow-2xl">
+          <Image
+            src={meeting.coverImage || "/images/poas-logo.png"}
             alt={meeting.title}
-            aspectRatio="video"
-            showCounter={true}
-            showDots={true}
+            fill
+            priority
+            sizes="(max-width: 1024px) 100vw, 1024px"
+            className="object-cover"
           />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent" />
+          <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between gap-2">
+            <span className="inline-flex items-center gap-2 rounded-xl bg-black/85 px-3 py-1.5 text-xs sm:text-sm font-semibold text-white border border-white/20 backdrop-blur-md shadow-md">
+              <Users className="h-4 w-4 text-[#EF4444]" />
+              <span>{meeting.participants?.split(",")[0] || meeting.title}</span>
+            </span>
+            {meeting.date && (
+              <span className="rounded-xl bg-[#241113]/90 px-3 py-1.5 text-xs font-bold text-[#EF4444] border border-[#A31D1D]/50 backdrop-blur-md">
+                {new Date(meeting.date).toLocaleDateString("en-IN", { month: "short", day: "numeric", year: "numeric" })}
+              </span>
+            )}
+          </div>
         </div>
       </ScrollReveal>
 

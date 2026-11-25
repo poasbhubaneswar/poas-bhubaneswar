@@ -3,7 +3,6 @@ import Link from "next/link";
 import Image from "next/image";
 import { SambalpuriBand, ShimmerBorder } from "@/components/ui/SambalpuriMotif";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
-import { PhotoCarousel } from "@/components/ui/PhotoCarousel";
 import { Calendar, MapPin, Users, ArrowRight, FileText } from "lucide-react";
 
 export const dynamic = "force-dynamic";
@@ -46,32 +45,34 @@ export default async function MeetingsPage() {
       {/* Meetings Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {meetings.map((meeting, idx) => {
-          let imageList: string[] = [];
-          if (meeting.images) {
-            try {
-              imageList = JSON.parse(meeting.images);
-            } catch {
-              imageList = [];
-            }
-          }
-          if (imageList.length === 0 && meeting.coverImage) {
-            imageList = [meeting.coverImage];
-          }
-
           return (
             <ScrollReveal key={meeting.id} delay={idx * 70}>
               <div className="group relative flex flex-col rounded-3xl glass-card-interactive overflow-hidden h-full border border-white/10 hover:border-[#A31D1D]">
                 <ShimmerBorder />
                 
-                {/* Photo Carousel or Cover Image */}
-                <div className="relative w-full">
-                  <PhotoCarousel
-                    images={imageList}
+                {/* Single Dedicated Meeting Photo with Dignitary Badge */}
+                <div className="relative aspect-[16/10] w-full overflow-hidden bg-black">
+                  <Image
+                    src={meeting.coverImage || "/images/poas-logo.png"}
                     alt={meeting.title}
-                    aspectRatio="video"
-                    showCounter={true}
-                    showDots={true}
+                    fill
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                    className="object-cover transition-transform duration-700 group-hover:scale-105"
                   />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent" />
+                  
+                  {/* Dignitary Name & Date Tag on Photo */}
+                  <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between gap-2">
+                    <span className="inline-flex items-center gap-1.5 rounded-lg bg-black/85 px-2.5 py-1 text-xs font-semibold text-white border border-white/20 backdrop-blur-md shadow-md">
+                      <Users className="h-3.5 w-3.5 text-[#EF4444]" />
+                      <span className="truncate max-w-[190px]">{meeting.participants?.split(",")[0] || meeting.title}</span>
+                    </span>
+                    {meeting.date && (
+                      <span className="rounded-lg bg-black/85 px-2 py-1 text-[11px] font-bold text-[#EF4444] border border-[#A31D1D]/50 backdrop-blur-md">
+                        {new Date(meeting.date).toLocaleDateString("en-IN", { month: "short", day: "numeric", year: "numeric" })}
+                      </span>
+                    )}
+                  </div>
                 </div>
 
                 {/* Meeting Meta & Description */}

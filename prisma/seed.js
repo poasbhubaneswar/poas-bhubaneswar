@@ -189,7 +189,7 @@ async function main() {
       category: "GOVERNING_BODY",
       phone: "7008609014",
       imageUrl: "/images/leadership/raj-kumar-dash.jpeg",
-      bio: "",
+      bio: "As our Event Coordinator, he brings the precision and problem-solving mindset of an engineering consultant to every gathering we host. He seamlessly manages logistics and planning to ensure every event runs like clockwork.",
       displayOrder: 14,
       isPublished: true,
     },
@@ -325,9 +325,7 @@ async function main() {
       description: "A meeting was held with the Hon’ble MLA, Sri Prasanna Acharya, during which detailed discussions took place regarding the forthcoming Nuakhai Bhetghat of Paschim Odisha Agrani Sangathan and the proposed construction of Maa Samaleswari Temple in Bhubaneswar, including possible ways and initiatives to take the temple project forward.",
       coverImage: "/images/meetings/meeting-prasanna-acharya.jpeg",
       images: JSON.stringify([
-        "/images/meetings/meeting-prasanna-acharya.jpeg",
-        "/images/events/samalei-fellowship-hall.jpeg",
-        "/images/events/poas-committee-review.jpeg"
+        "/images/meetings/meeting-prasanna-acharya.jpeg"
       ]),
       isPublished: true,
       displayOrder: 1,
@@ -341,8 +339,7 @@ async function main() {
       description: "Hon'ble Minister Shri Suresh Pujari invited the newly elected representatives of Paschim Odisha Agrani Sangathan for an important deliberation on institutional growth, community service programs, and advancing welfare projects for the Western Odisha diaspora residing in the state capital.",
       coverImage: "/images/meetings/meeting-suresh-pujari.jpeg",
       images: JSON.stringify([
-        "/images/meetings/meeting-suresh-pujari.jpeg",
-        "/images/events/cultural-mandap-gathering.jpeg"
+        "/images/meetings/meeting-suresh-pujari.jpeg"
       ]),
       isPublished: true,
       displayOrder: 2,
@@ -384,8 +381,7 @@ async function main() {
       description: "A meeting of great significance held with the Hon’ble MLA of Balangir, Shri Kalikesh Singh Deo. Detailed matters were discussed, particularly the proposed construction of Maa Samalei Temple in Bhubaneswar, the growth and institutional development of POAS, and the grand annual Nuakhai Bhetghat celebration.",
       coverImage: "/images/meetings/meeting-kalikesh-singh-deo.jpeg",
       images: JSON.stringify([
-        "/images/meetings/meeting-kalikesh-singh-deo.jpeg",
-        "/images/events/samalei-fellowship-hall.jpeg"
+        "/images/meetings/meeting-kalikesh-singh-deo.jpeg"
       ]),
       isPublished: true,
       displayOrder: 5,

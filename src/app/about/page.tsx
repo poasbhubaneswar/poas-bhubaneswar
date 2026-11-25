@@ -63,10 +63,10 @@ export default function AboutPage() {
           </div>
 
           <div className="lg:col-span-5 relative">
-            <div className="relative aspect-[4/3] w-full rounded-3xl glass-panel p-2 overflow-hidden shadow-2xl border border-[#A31D1D]/30">
+            <div className="relative aspect-[4/3] w-full rounded-3xl glass-panel p-2 overflow-hidden shadow-2xl border border-[#A31D1D]/40">
               <Image
-                src="/images/events/poas-committee-review.jpeg"
-                alt="POAS Executive Committee Meeting"
+                src="/images/maa-samalei-sacred-darshan.jpeg"
+                alt="Sacred Darshan of Presiding Deity Maa Samaleswari"
                 fill
                 className="object-cover rounded-2xl"
               />

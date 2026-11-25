@@ -36,7 +36,7 @@ export default async function HomePage() {
     prisma.meeting.findMany({
       where: { isPublished: true },
       orderBy: { displayOrder: "asc" },
-      take: 3,
+      take: 6,
     }),
     prisma.article.findMany({
       where: { isPublished: true },
@@ -406,11 +406,20 @@ export default async function HomePage() {
                       src={meeting.coverImage}
                       alt={meeting.title}
                       fill
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                       className="object-cover transition-transform duration-700 group-hover:scale-105"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
-                    <div className="absolute top-3 right-3 rounded-full bg-black/75 px-3 py-1 text-[10px] font-bold text-[#EF4444] border border-white/10 backdrop-blur-md">
-                      {meeting.date ? new Date(meeting.date).toLocaleDateString("en-IN", { month: "short", day: "numeric", year: "numeric" }) : "Recorded"}
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent" />
+                    
+                    {/* Dignitary Name & Date Tag on Photo */}
+                    <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between gap-2">
+                      <span className="inline-flex items-center gap-1.5 rounded-lg bg-black/85 px-2.5 py-1 text-xs font-semibold text-white border border-white/20 backdrop-blur-md shadow-md">
+                        <Users className="h-3.5 w-3.5 text-[#EF4444]" />
+                        <span className="truncate max-w-[190px]">{meeting.participants?.split(",")[0] || meeting.title}</span>
+                      </span>
+                      <span className="rounded-lg bg-black/85 px-2 py-1 text-[10px] font-bold text-[#EF4444] border border-[#A31D1D]/50 backdrop-blur-md">
+                        {meeting.date ? new Date(meeting.date).toLocaleDateString("en-IN", { month: "short", day: "numeric", year: "numeric" }) : "Recorded"}
+                      </span>
                     </div>
                   </div>
                 )}
