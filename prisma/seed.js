@@ -185,7 +185,7 @@ async function main() {
     {
       name: "Er. Rajkumar Dash",
       nameOdia: "ରାଜ କୁମାର ଦାଶ",
-      designation: "Coordinator (Consultant)",
+      designation: "Secretary (Consultant)",
       category: "GOVERNING_BODY",
       phone: "7008609014",
       imageUrl: "/images/leadership/raj-kumar-dash.jpeg",
