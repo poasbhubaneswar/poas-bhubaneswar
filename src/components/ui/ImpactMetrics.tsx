@@ -23,9 +23,9 @@ const METRICS: MetricItem[] = [
     description: "Sambalpur, Balangir, Bargarh, Kalahandi, Nuapada, Subarnapur, Deogarh, Jharsuguda, Sundargarh, Boudh & beyond.",
   },
   {
-    number: "10,000+",
+    number: "500+",
     label: "Enrolled Community",
-    odiaLabel: "ଦଶ ହଜାରରୁ ଊର୍ଦ୍ଧ୍ୱ ସଦସ୍ୟ",
+    odiaLabel: "୫୦୦ରୁ ଊର୍ଦ୍ଧ୍ୱ ସଦସ୍ୟ",
     description: "Students, families, professionals, and senior citizens participating in POAS initiatives.",
   },
   {

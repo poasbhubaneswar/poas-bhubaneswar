@@ -66,7 +66,7 @@ export default function MembershipPage() {
                 className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-[#A31D1D] to-[#EF4444] px-7 py-3 text-xs sm:text-sm font-bold text-white shadow-xl hover:scale-105 active:scale-95 transition-all"
               >
                 <Phone className="h-4 w-4" />
-                <span>Contact Secretariat</span>
+                <span>Contact POAS</span>
               </Link>
 
               <Link

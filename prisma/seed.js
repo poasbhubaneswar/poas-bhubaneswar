@@ -462,7 +462,7 @@ async function main() {
     { key: "hero_tagline", value: "ସଂସ୍କୃତି · ସମାଜ · ସେବା — Culture · Community · Service", description: "Hero Eyebrow Tagline" },
     { key: "hero_description", value: "Over 30 years of cultural heritage, community solidarity, and social service. Paschim Odisha Agrani Sangathan brings together the people and diaspora of Western Odisha living in Bhubaneswar to preserve our identity and build a shared future.", description: "Hero Subhead Description" },
     { key: "districts_stat", value: "10+ Districts", description: "District Representation Statistic" },
-    { key: "members_stat", value: "10,000+", description: "Enrolled Community Members" },
+    { key: "members_stat", value: "500+", description: "Enrolled Community Members" },
     { key: "years_stat", value: "30+", description: "Years of Cultural Heritage" },
     { key: "contact_email", value: "poasbhubaneswar@gmail.com", description: "Official Secretariat Email" },
     { key: "contact_phone", value: "+91 94390 11880", description: "Primary Phone Number (President)" },
