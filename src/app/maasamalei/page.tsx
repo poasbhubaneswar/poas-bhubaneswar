@@ -5,8 +5,8 @@ import Link from "next/link";
 import { Building2, Heart, CheckCircle2, MapPin, Sparkles, Shield, ArrowRight } from "lucide-react";
 
 export const metadata = {
-  title: "Maa Samalei Mandir Project | Paschim Odisha Agrani Sangathana",
-  description: "A proposed spiritual, cultural, and community sanctuary honoring Presiding Deity Maa Samaleswari in Bhubaneswar, Odisha. Vision, architecture, and consultative status.",
+  title: "Maa Samalei Mandir Project · Hirapur, Bhubaneswar | Paschim Odisha Agrani Sangathana",
+  description: "A sacred spiritual, cultural, and community sanctuary honoring Presiding Deity Maa Samaleswari in Hirapur, Bhubaneswar, Odisha. Land allotted and planning in progress.",
 };
 
 export default function MaaSamaleiPage() {
@@ -23,7 +23,7 @@ export default function MaaSamaleiPage() {
             Maa Samalei Mandir Project
           </h1>
           <p className="text-base text-[#D1D5DB] mt-3 leading-relaxed font-odia text-xl">
-            "ଜୟ ମାଁ ସମଲେଇ — ଭୁବନେଶ୍ୱରରେ ଏକ ପବିତ୍ର ସାଂସ୍କୃତିକ କେନ୍ଦ୍ର"
+            "ଜୟ ମାଁ ସମଲେଇ — ହୀରାପୁର, ଭୁବନେଶ୍ୱରରେ ଏକ ପବିତ୍ର ସାଂସ୍କୃତିକ କେନ୍ଦ୍ର"
           </p>
         </div>
       </ScrollReveal>
@@ -146,14 +146,14 @@ export default function MaaSamaleiPage() {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 text-sm">
             <div className="rounded-xl border border-white/10 bg-[#0B0B0C] p-4">
               <span className="text-[11px] font-bold text-[#EF4444] uppercase block">Location</span>
-              <span className="text-sm font-semibold text-white mt-1 block">Bhubaneswar, Odisha</span>
-              <span className="text-xs text-[#9CA3AF] mt-0.5 block">Site allocation under verification</span>
+              <span className="text-sm font-semibold text-white mt-1 block">Hirapur, Bhubaneswar</span>
+              <span className="text-xs text-[#9CA3AF] mt-0.5 block">ହୀରାପୁର, ଭୁବନେଶ୍ୱର, ଓଡ଼ିଶା</span>
             </div>
 
             <div className="rounded-xl border border-white/10 bg-[#0B0B0C] p-4">
               <span className="text-[11px] font-bold text-[#EF4444] uppercase block">Project Status</span>
-              <span className="text-sm font-semibold text-white mt-1 block">Proposed &amp; Deliberated</span>
-              <span className="text-xs text-[#9CA3AF] mt-0.5 block">Subject to applicable statutory approvals</span>
+              <span className="text-sm font-semibold text-white mt-1 block">Land Allotted, Planning in Progress</span>
+              <span className="text-xs text-[#9CA3AF] mt-0.5 block">ଜମି ଆବଣ୍ଟିତ, ଯୋଜନା ପ୍ରକ୍ରିୟା ଚାଲୁ ରହିଛି</span>
             </div>
 
             <div className="rounded-xl border border-white/10 bg-[#0B0B0C] p-4">

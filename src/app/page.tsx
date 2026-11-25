@@ -227,11 +227,11 @@ export default async function HomePage() {
                 </div>
 
                 <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-white leading-tight">
-                  Maa Samalei Mandir &amp; Cultural Complex, Bhubaneswar
+                  Maa Samalei Mandir &amp; Cultural Complex, Hirapur, Bhubaneswar
                 </h2>
 
                 <p className="text-sm sm:text-base text-[#D1D5DB] leading-relaxed">
-                  For over three decades, the families of Western Odisha residing in the capital have aspired for a central spiritual sanctum and cultural anchor. Paschim Odisha Agrani Sangathana is actively spearheading the historic establishment of Maa Samalei Mandir in Bhubaneswar.
+                  For over three decades, the families of Western Odisha residing in the capital have aspired for a central spiritual sanctum and cultural anchor. Paschim Odisha Agrani Sangathana is actively spearheading the historic establishment of Maa Samalei Mandir at Hirapur, Bhubaneswar.
                 </p>
 
                 <p className="text-sm text-[#9CA3AF] leading-relaxed">
@@ -242,11 +242,11 @@ export default async function HomePage() {
                 <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 pt-2">
                   <div className="rounded-xl border border-white/10 bg-[#0B0B0C]/80 p-3.5 shadow-inner">
                     <span className="text-[11px] font-semibold uppercase text-[#EF4444] block">Status</span>
-                    <span className="text-sm font-bold text-white block mt-1">Land &amp; Planning</span>
+                    <span className="text-sm font-bold text-white block mt-1">Land Allotted, Planning in Progress</span>
                   </div>
                   <div className="rounded-xl border border-white/10 bg-[#0B0B0C]/80 p-3.5 shadow-inner">
                     <span className="text-[11px] font-semibold uppercase text-[#EF4444] block">Location</span>
-                    <span className="text-sm font-bold text-white block mt-1">Bhubaneswar</span>
+                    <span className="text-sm font-bold text-white block mt-1">Hirapur, Bhubaneswar</span>
                   </div>
                   <div className="rounded-xl border border-white/10 bg-[#0B0B0C]/80 p-3.5 col-span-2 sm:col-span-1 shadow-inner">
                     <span className="text-[11px] font-semibold uppercase text-[#EF4444] block">Districts</span>
@@ -620,14 +620,14 @@ export default async function HomePage() {
           {[
             "ଜୁହାର 🙏 ପଶ୍ଚିମ ଓଡ଼ିଶା ଅଗ୍ରଣୀ ସଂଗଠନ (POAS) ଭୁବନେଶ୍ୱର",
             "30+ Years of Western Odisha Culture, Community and Social Leadership",
-            "Maa Samalei Mandir Project: Building Our Sacred Cultural Sanctuary in Bhubaneswar",
+            "Maa Samalei Mandir Project: Building Our Sacred Cultural Sanctuary at Hirapur, Bhubaneswar",
             "Uniting 10+ Districts: Sambalpur, Balangir, Bargarh, Kalahandi, Nuapada & beyond",
             "POAS Membership Enrolment Coming Soon — Stay Tuned",
             "ଜୟ ମାଁ ସମଲେଇ 🙏 Sacred Heritage, Solidarity and Shared Future",
           ].concat([
             "ଜୁହାର 🙏 ପଶ୍ଚିମ ଓଡ଼ିଶା ଅଗ୍ରଣୀ ସଂଗଠନ (POAS) ଭୁବନେଶ୍ୱର",
             "30+ Years of Western Odisha Culture, Community and Social Leadership",
-            "Maa Samalei Mandir Project: Building Our Sacred Cultural Sanctuary in Bhubaneswar",
+            "Maa Samalei Mandir Project: Building Our Sacred Cultural Sanctuary at Hirapur, Bhubaneswar",
             "Uniting 10+ Districts: Sambalpur, Balangir, Bargarh, Kalahandi, Nuapada & beyond",
             "POAS Membership Enrolment Coming Soon — Stay Tuned",
             "ଜୟ ମାଁ ସମଲେଇ 🙏 Sacred Heritage, Solidarity and Shared Future",
