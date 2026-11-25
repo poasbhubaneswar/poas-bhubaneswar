@@ -50,7 +50,7 @@ export default async function MeetingsPage() {
               <div className="group relative flex flex-col rounded-3xl glass-card-interactive overflow-hidden h-full border border-white/10 hover:border-[#A31D1D]">
                 <ShimmerBorder />
                 
-                {/* Single Dedicated Meeting Photo with Dignitary Badge */}
+                {/* Single Dedicated Meeting Photo */}
                 <div className="relative aspect-[16/10] w-full overflow-hidden bg-black">
                   <Image
                     src={meeting.coverImage || "/images/poas-logo.png"}
@@ -59,20 +59,6 @@ export default async function MeetingsPage() {
                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                     className="object-cover transition-transform duration-700 group-hover:scale-105"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent" />
-                  
-                  {/* Dignitary Name & Date Tag on Photo */}
-                  <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between gap-2">
-                    <span className="inline-flex items-center gap-1.5 rounded-lg bg-black/85 px-2.5 py-1 text-xs font-semibold text-white border border-white/20 backdrop-blur-md shadow-md">
-                      <Users className="h-3.5 w-3.5 text-[#EF4444]" />
-                      <span className="truncate max-w-[190px]">{meeting.participants?.split(",")[0] || meeting.title}</span>
-                    </span>
-                    {meeting.date && (
-                      <span className="rounded-lg bg-black/85 px-2 py-1 text-[11px] font-bold text-[#EF4444] border border-[#A31D1D]/50 backdrop-blur-md">
-                        {new Date(meeting.date).toLocaleDateString("en-IN", { month: "short", day: "numeric", year: "numeric" })}
-                      </span>
-                    )}
-                  </div>
                 </div>
 
                 {/* Meeting Meta & Description */}

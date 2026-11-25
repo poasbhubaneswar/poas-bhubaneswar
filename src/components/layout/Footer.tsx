@@ -229,11 +229,11 @@ export async function Footer() {
             </Link>
             <span>·</span>
             <Link href="/membership" className="hover:text-white transition-colors">
-              Membership Tiers
+              Membership
             </Link>
             <span>·</span>
             <Link href="/contact" className="hover:text-white transition-colors">
-              Secretariat
+              Contacts
             </Link>
           </div>
         </div>

@@ -586,6 +586,33 @@ export async function deleteArticle(idOrFormData: string | FormData) {
   }
 }
 
+export async function updateArticle(formData: FormData) {
+  const id = formData.get("id") as string;
+  const title = formData.get("title") as string;
+  const excerpt = formData.get("excerpt") as string;
+  const content = formData.get("content") as string;
+  const category = (formData.get("category") as string) || "Cultural Heritage";
+  const coverImage = formData.get("coverImage") as string;
+
+  if (!id || !title) return;
+
+  await prisma.article.update({
+    where: { id },
+    data: {
+      title,
+      excerpt: excerpt || title,
+      content,
+      category,
+      coverImage: coverImage || undefined,
+    },
+  });
+
+  revalidatePath("/", "layout");
+  revalidatePath("/news");
+  revalidatePath("/admin/articles");
+  revalidatePath("/");
+}
+
 // 10. Membership Inquiries Status Update
 export async function updateInquiryStatus(id: string, status: string, paymentStatus?: string) {
   await prisma.memberInquiry.update({

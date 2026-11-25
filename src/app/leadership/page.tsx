@@ -10,7 +10,7 @@ export const revalidate = 0;
 
 export const metadata = {
   title: "Leadership & Governing Body | Paschim Odisha Agrani Sangathana",
-  description: "Official Leadership & Board of Advisors according to POAS LH, and Governing Body according to the electoral resolution.",
+  description: "Official Leadership, Board of Advisors, Governing Body, and Executive Council of Paschim Odisha Agrani Sangathana (POAS), Bhubaneswar.",
 };
 
 export default async function LeadershipPage() {
@@ -55,18 +55,22 @@ export default async function LeadershipPage() {
           </p>
 
           <p className="text-xs sm:text-sm text-[#9CA3AF] mt-3 max-w-2xl mx-auto leading-relaxed">
-            The official institutional hierarchy of Paschim Odisha Agrani Sangathan (POAS), Bhubaneswar. Leadership &amp; Board of Advisors formulated per official Letterhead (<strong className="text-white">POAS LH</strong>, Regd. No. KRD 6761-443, 95-96), and Governing Body constituted per the official Electoral Resolution.
+            The official institutional hierarchy of Paschim Odisha Agrani Sangathana (POAS), Bhubaneswar, comprising our esteemed Board of Advisors, Governing Body, and Executive Council.
           </p>
 
-          {/* Dual Institutional Framework Badges */}
+          {/* Institutional Framework Badges */}
           <div className="mt-6 flex flex-wrap items-center justify-center gap-3">
             <span className="inline-flex items-center gap-1.5 rounded-full border border-amber-500/40 bg-amber-500/10 px-3.5 py-1 text-xs font-medium text-amber-300">
               <Award className="h-3.5 w-3.5" />
-              <span>Leadership &amp; Advisors per POAS LH</span>
+              <span>Board of Advisors</span>
             </span>
             <span className="inline-flex items-center gap-1.5 rounded-full border border-[#A31D1D]/50 bg-[#241113] px-3.5 py-1 text-xs font-medium text-white">
               <Shield className="h-3.5 w-3.5 text-[#EF4444]" />
-              <span>Governing Body per Electoral Resolution</span>
+              <span>Governing Body</span>
+            </span>
+            <span className="inline-flex items-center gap-1.5 rounded-full border border-white/20 bg-white/5 px-3.5 py-1 text-xs font-medium text-white">
+              <Users className="h-3.5 w-3.5 text-[#EF4444]" />
+              <span>Executive Council</span>
             </span>
           </div>
         </div>
@@ -75,7 +79,7 @@ export default async function LeadershipPage() {
       <SambalpuriBand className="opacity-80" />
 
       {/* =========================================================================
-          SECTION 1: BOARD OF ADVISORS / LEADERSHIP (According to POAS LH.pdf)
+          SECTION 1: BOARD OF ADVISORS / LEADERSHIP
          ========================================================================= */}
       <section id="advisors" className="space-y-8">
         <ScrollReveal>
@@ -83,7 +87,7 @@ export default async function LeadershipPage() {
             <div>
               <div className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-amber-400 mb-1">
                 <Award className="h-3.5 w-3.5" />
-                <span>According to Official Letterhead (POAS LH)</span>
+                <span>Distinguished Mentors &amp; Patrons</span>
               </div>
               <h2 className="font-serif text-2xl sm:text-3xl font-bold text-white">
                 Board of Advisors · ଉପଦେଷ୍ଟାମଣ୍ଡଳୀ
@@ -124,7 +128,7 @@ export default async function LeadershipPage() {
                       </span>
                       <div className="mt-3 inline-flex items-center gap-1.5 rounded-full border border-amber-500/40 bg-amber-500/10 px-3 py-1 text-[10px] font-semibold text-amber-300">
                         <Award className="h-3 w-3" />
-                        <span>Official Advisor · POAS LH</span>
+                        <span>Senior Advisor</span>
                       </div>
                     </div>
                   )}
@@ -161,7 +165,7 @@ export default async function LeadershipPage() {
                     </span>
 
                     <span className="inline-flex items-center gap-1 text-[11px] text-amber-400 font-medium">
-                      <CheckCircle2 className="h-3.5 w-3.5" /> POAS LH
+                      <CheckCircle2 className="h-3.5 w-3.5" /> Advisor
                     </span>
                   </div>
                 </div>
@@ -172,7 +176,7 @@ export default async function LeadershipPage() {
       </section>
 
       {/* =========================================================================
-          SECTION 2: GOVERNING BODY (According to NEWLY ELECTED GOVERNING BODY.docx)
+          SECTION 2: GOVERNING BODY
          ========================================================================= */}
       <section id="governing-body" className="space-y-8">
         <ScrollReveal>
@@ -180,7 +184,7 @@ export default async function LeadershipPage() {
             <div>
               <div className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-[#EF4444] mb-1">
                 <Shield className="h-3.5 w-3.5" />
-                <span>According to Newly Elected Governing Body Resolution</span>
+                <span>Elected Leadership</span>
               </div>
               <h2 className="font-serif text-2xl sm:text-3xl font-bold text-white">
                 Governing Body · ପରିଚାଳନା ପରିଷଦ
@@ -269,7 +273,7 @@ export default async function LeadershipPage() {
       </section>
 
       {/* =========================================================================
-          SECTION 3: EXECUTIVE BODY (According to NEWLY ELECTED GOVERNING BODY.docx Table 2)
+          SECTION 3: EXECUTIVE BODY
          ========================================================================= */}
       <section id="executive-body" className="space-y-8">
         <ScrollReveal>
@@ -277,7 +281,7 @@ export default async function LeadershipPage() {
             <div>
               <div className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-[#D1D5DB] mb-1">
                 <Users className="h-3.5 w-3.5" />
-                <span>Executive Committee (Table 2 of Electoral Resolution)</span>
+                <span>Executive Council</span>
               </div>
               <h2 className="font-serif text-2xl sm:text-3xl font-bold text-white">
                 Executive Body · କାର୍ଯ୍ୟକାରିଣୀ କମିଟି

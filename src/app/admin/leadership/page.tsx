@@ -1,10 +1,9 @@
 import { prisma } from "@/lib/prisma";
 import { getAdminSession } from "@/lib/session";
 import { redirect } from "next/navigation";
-import Image from "next/image";
-import { createOfficeBearer, deleteOfficeBearer } from "@/actions/admin";
-import { AdminDeleteButton } from "@/components/admin/AdminDeleteButton";
-import { Users, Plus, Phone, Shield, AlertCircle } from "lucide-react";
+import { createOfficeBearer } from "@/actions/admin";
+import { LeaderRow } from "./LeaderRow";
+import { Users, Plus, Shield } from "lucide-react";
 
 export const dynamic = "force-dynamic";
 export const revalidate = 0;
@@ -27,7 +26,7 @@ export default async function AdminLeadershipPage() {
           Governing Body &amp; Leadership Management
         </h1>
         <p className="text-xs text-[#9CA3AF] mt-1">
-          Manage the official 24-member Leadership &amp; Advisory Council (POAS LH.pdf) and Governing Body &amp; Executive Council (Electoral Resolution docx).
+          Manage the official Leadership, Board of Advisors, Governing Body, and Executive Council.
         </p>
       </div>
 
@@ -87,7 +86,7 @@ export default async function AdminLeadershipPage() {
                 className="w-full rounded-xl border border-[#2D2D35] bg-[#0B0B0C] p-2.5 text-xs text-white focus:border-[#A31D1D] focus:outline-none"
               >
                 <option value="GOVERNING_BODY">Governing Body (ପରିଚାଳନା ପରିଷଦ)</option>
-                <option value="ADVISORY_COUNCIL">Board of Advisors (POAS LH.pdf)</option>
+                <option value="ADVISORY_COUNCIL">Board of Advisors (ଉପଦେଷ୍ଟାମଣ୍ଡଳୀ)</option>
                 <option value="EXECUTIVE_BODY">Executive Body (କାର୍ଯ୍ୟକାରିଣୀ କମିଟି)</option>
               </select>
             </div>
@@ -144,7 +143,7 @@ export default async function AdminLeadershipPage() {
           <span className="font-serif font-bold text-base text-white">
             Current Office Bearers ({bearers.length})
           </span>
-          <span className="text-green-400 font-semibold">19 Resolution Members Active</span>
+          <span className="text-green-400 font-semibold">{bearers.length} Members Active</span>
         </div>
 
         <div className="overflow-x-auto">
@@ -162,59 +161,7 @@ export default async function AdminLeadershipPage() {
             </thead>
             <tbody className="divide-y divide-[#2D2D35]">
               {bearers.map((b, idx) => (
-                <tr key={b.id} className="hover:bg-white/[0.02] transition-colors">
-                  <td className="p-3.5 text-[#9CA3AF] font-mono">{idx + 1}</td>
-                  <td className="p-3.5">
-                    {b.imageUrl ? (
-                      <div className="relative h-10 w-10 rounded-full overflow-hidden border border-[#A31D1D]/50 bg-black">
-                        <Image
-                          src={b.imageUrl}
-                          alt={b.name}
-                          fill
-                          className="object-cover"
-                        />
-                      </div>
-                    ) : (
-                      <div className="h-10 w-10 rounded-full bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-amber-400" title="Photo verification pending">
-                        <AlertCircle className="h-4 w-4" />
-                      </div>
-                    )}
-                  </td>
-                  <td className="p-3.5">
-                    <span className="font-semibold text-white block">{b.name}</span>
-                    {b.nameOdia && (
-                      <span className="text-[11px] font-odia text-[#EF4444] block">
-                        {b.nameOdia}
-                      </span>
-                    )}
-                  </td>
-                  <td className="p-3.5 text-[#D1D5DB] font-medium">{b.designation}</td>
-                  <td className="p-3.5">
-                    <span className={`rounded-md px-2 py-0.5 text-[10px] font-bold ${
-                      b.category === "GOVERNING_BODY" ? "bg-[#A31D1D]/30 text-[#EF4444] border border-[#A31D1D]/50" : "bg-white/10 text-white"
-                    }`}>
-                      {b.category.replace("_", " ")}
-                    </span>
-                  </td>
-                  <td className="p-3.5 text-[#9CA3AF]">
-                    {b.phone ? (
-                      <div className="flex items-center gap-1">
-                        <Phone className="h-3 w-3 text-[#EF4444]" />
-                        <span>{b.phone}</span>
-                      </div>
-                    ) : (
-                      "—"
-                    )}
-                  </td>
-                  <td className="p-3.5 text-right">
-                    <AdminDeleteButton
-                      id={b.id}
-                      title={b.name}
-                      itemType="Office Bearer"
-                      action={deleteOfficeBearer}
-                    />
-                  </td>
-                </tr>
+                <LeaderRow key={b.id} bearer={b} index={idx} />
               ))}
             </tbody>
           </table>

@@ -409,26 +409,30 @@ export default async function HomePage() {
                       sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                       className="object-cover transition-transform duration-700 group-hover:scale-105"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent" />
-                    
-                    {/* Dignitary Name & Date Tag on Photo */}
-                    <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between gap-2">
-                      <span className="inline-flex items-center gap-1.5 rounded-lg bg-black/85 px-2.5 py-1 text-xs font-semibold text-white border border-white/20 backdrop-blur-md shadow-md">
-                        <Users className="h-3.5 w-3.5 text-[#EF4444]" />
-                        <span className="truncate max-w-[190px]">{meeting.participants?.split(",")[0] || meeting.title}</span>
-                      </span>
-                      <span className="rounded-lg bg-black/85 px-2 py-1 text-[10px] font-bold text-[#EF4444] border border-[#A31D1D]/50 backdrop-blur-md">
-                        {meeting.date ? new Date(meeting.date).toLocaleDateString("en-IN", { month: "short", day: "numeric", year: "numeric" }) : "Recorded"}
-                      </span>
-                    </div>
                   </div>
                 )}
                 <div className="p-5 flex-1 flex flex-col justify-between">
                   <div>
-                    <div className="flex items-center gap-2 text-xs text-[#9CA3AF] mb-2">
-                      <MapPin className="h-3.5 w-3.5 text-[#EF4444]" />
-                      <span>{meeting.location || "Bhubaneswar"}</span>
+                    {/* Date & Location Down in the card */}
+                    <div className="flex items-center justify-between text-xs text-[#9CA3AF] mb-2.5">
+                      <div className="flex items-center gap-1.5">
+                        <Calendar className="h-3.5 w-3.5 text-[#EF4444]" />
+                        <span>{meeting.date ? new Date(meeting.date).toLocaleDateString("en-IN", { month: "short", day: "numeric", year: "numeric" }) : "Recorded"}</span>
+                      </div>
+                      <div className="flex items-center gap-1.5">
+                        <MapPin className="h-3.5 w-3.5 text-[#EF4444]" />
+                        <span>{meeting.location || "Bhubaneswar"}</span>
+                      </div>
                     </div>
+
+                    {/* Dignitary / Key Participant Name */}
+                    {meeting.participants && (
+                      <div className="mb-2.5 inline-flex items-center gap-1.5 rounded-lg bg-white/[0.05] px-2.5 py-1 text-xs font-semibold text-white border border-white/10">
+                        <Users className="h-3 w-3 text-[#EF4444]" />
+                        <span className="truncate max-w-[260px]">{meeting.participants.split(",")[0]}</span>
+                      </div>
+                    )}
+
                     <h3 className="font-serif text-lg font-bold text-white group-hover:text-[#EF4444] transition-colors leading-snug">
                       {meeting.title}
                     </h3>
